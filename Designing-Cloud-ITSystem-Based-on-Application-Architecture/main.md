@@ -35,12 +35,23 @@
 - [Chapter 5.2: 账单管理](chapters/chapter5.2.md)
 
 - [Chapter 6: 自动化](chapters/chapter6.md)
-- [Chapter 6.1: ITSM](chapters/chapter6.1.md)
+- [Chapter 6.1: ITSM服务化](chapters/chapter6.1.md)
 - [Chapter 6.2: 账户管理](chapters/chapter6.2.md)
 - [Chapter 6.3: 资源管理](chapters/chapter6.3.md)
 - [Chapter 6.4: 应用发布](chapters/chapter6.4.md)
 - [Chapter 6.5: 监控告警](chapters/chapter6.5.md)
 - [Chapter 6.6: 成本管理](chapters/chapter6.6.md)
 - [Chapter 6.7: 安全合规](chapters/chapter6.6.md)
+
+
+- [Chapter 7:测试](chapters/chapter2.md)
+- [Chapter 7.1:网络带宽测试](chapters/chapter2.md)
+- [Chapter 7.2:网络延迟测试](chapters/chapter2.md)
+- [Chapter 7.3:系统压力测试](chapters/chapter2.md)
+- [Chapter 7.4:存储性能测试](chapters/chapter2.md)
+- [Chapter 7.4:PaaS服务测试](chapters/chapter2.md)
+- [Chapter 7.4:SaaS服务测试](chapters/chapter2.md)
+- [Chapter 7.4:API服务测试](chapters/chapter2.md)
+- [Chapter 7.5:DevOPS-AIOPS](chapters/chapter2.md)
 
 [Conclusion](conclusion.md)
