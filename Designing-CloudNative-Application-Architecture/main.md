@@ -27,7 +27,13 @@
 - [Chapter 3.5:分布式集群](chapters/chapter2.md)
 - [Chapter 3.6:可用性设计(分级管理，超时, 限流，服务降级，幂等, CAP)](chapters/chapter2.md)
 
-- [Chapter 4.3:应用安全](chapters/chapter2.md)
+- [Chapter 4:应用系统安全](chapters/chapter2.md)
+- [Chapter 4.1:代码安全](chapters/chapter2.md)
+- [Chapter 4.2:制品安全](chapters/chapter2.md)
+- [Chapter 4.3:身份验证与授权](chapters/chapter2.md)
+- [Chapter 4.4:数据保护](chapters/chapter2.md)
+- [Chapter 4.5:漏洞保护](chapters/chapter2.md)
+- [Chapter 4.6:应对安全威胁](chapters/chapter2.md)
 
 - [Chapter 4.3:测试](chapters/chapter2.md)
 - [Chapter 4.3:功能测试](chapters/chapter2.md)
