@@ -1,0 +1,66 @@
+@startuml
+
+top to bottom direction
+
+package "Data Collection" as collector  {
+  component CloudQuery
+  component Prometheus
+  component OpenTelemetry
+}
+
+package "Data Storage" as data {
+  component ClickHouse
+  database "Metrics" as metdb
+  database "Events" as evtdb
+  component Neo4j
+}
+
+package "Visualization" as view {
+  component Grafana
+}
+
+package "Alerting" as alert {
+  component AlertManager
+}
+
+package "Cloud" as cloud {
+  cloud AWS #6ca6cd
+  cloud GCP #f5c7ea
+  cloud Azure #b9c2d1
+  cloud Alibaba #ff7f50
+  cloud Tencent #f4e06d
+}
+
+cloud -down-> collector
+collector -down-> data
+data -r-> view
+data -r-> alert
+
+AWS --> CloudQuery: Resource metadata
+GCP --> CloudQuery: Resource metadata
+Azure --> CloudQuery: Resource metadata
+Alibaba --> CloudQuery: Resource metadata
+Tencent --> CloudQuery: Resource metadata
+
+AWS --> Prometheus: CloudWatch Exporter
+GCP --> Prometheus: Monitoring Exporter
+Azure --> Prometheus: Monitor Exporter
+Alibaba --> Prometheus: Monitoring Exporter
+Tencent --> Prometheus: Cloud Monitor Exporter
+
+Prometheus --> ClickHouse: Remote write
+
+ClickHouse --> metdb: Insert metrics
+ClickHouse --> evtdb: Insert events
+ClickHouse --> Neo4j: Graph analysis
+
+ClickHouse -r-> Grafana: Visualization
+Prometheus -r-> Grafana: Visualization
+Neo4j -r-> Grafana: Visualization
+
+Prometheus -> AlertManager: Alerts
+
+OpenTelemetry --> ClickHouse: Traces
+OpenTelemetry --> Prometheus: Metrics
+
+@enduml
