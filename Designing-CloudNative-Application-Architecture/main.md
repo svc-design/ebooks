@@ -12,14 +12,12 @@
 - [Chapter 1.3:消息队列](chapters/chapter1.3.md)
 - [Chapter 1.4:CDN加速](chapters/chapter1.4.md)
 - [Chapter 1.5:API网关服务](chapters/chapter1.5.md)
-- [Chapter 1.6:分布式后端服务](chapters/chapter1.6.md)
-- [Chapter 1.7:业务拆分与微服务化](chapters/chapter1.7.md)
+- [Chapter 1.6:业务拆分,分布式,微服务化](chapters/chapter1.6.md)
 
 - [Chapter 2:云上应用数据架构](chapters/chapter1.md)
 - [Chapter 2.1:数据类型](chapters/chapter2.1.md)
 - [Chapter 2.2:数据存储](chapters/chapter2.2.md)
-- [Chapter 2.3:在线大数据](chapters/chapter2.3.md)
-- [Chapter 2.4:离线大数据](chapters/chapter2.4.md)
+- [Chapter 2.3:大数据](chapters/chapter2.3.md)
 
 - [Chapter 3:架构模式](chapters/chapter2.md)
 - [Chapter 3.1:服务分层(应用/服务/数据)](chapters/chapter2.md)
