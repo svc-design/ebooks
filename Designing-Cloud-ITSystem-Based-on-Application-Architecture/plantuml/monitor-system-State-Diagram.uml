@@ -11,28 +11,29 @@ state Resource {
   SaaS --> LogAgent: pull
 
   App  --> LogAgent: pull
-  App  --> TraceAgent: SDK 
+  App  --> TraceAgent: SDK
   App  --> PrometheusAgent: pull
 
-  MultiCloud --> cloudquery: sync resource list
-  k8sCluster  --> cloudquery: sync resource list
-  IacState  --> cloudquery: sync resource list  
+  MultiCloudResource --> ResourceCollector: sync
+  k8sClusterResource  --> ResourceCollector: sync
+  IacState  --> ResourceCollector: sync
 }
-
 
 state PrometheusAgent {
-  MetricWrite  --> MetricServer: Metric Sent  
+  MetricWrite  --> MetricServer: Metric Sent
 }
-
 
 state LogAgent {
   LogWrite --> DataServer: Metric Sent
 }
 
-state TraceAgent {
+state "OpenTelemetry" as TraceAgent {
   TraceLogWrite --> DataServer: Trace Sent
 }
 
+state "cloudquery" as ResourceCollector {
+   ResourceCollector --> GraphDBServer: Resource List Sent
+}
 
 state "Prometheus" as MetricServer {
 }
@@ -57,7 +58,6 @@ PrometheusAgent --> MetricServer : Metric Sent
 MetricServer --> AlertServer : Alert Sent
 AlertServer --> Alert
 
-cloudquery ---> GraphDBServer: sync resource list
 MetricServer --> Dashboard : Metric Dashboard Displayed
 DataServer --> Dashboard : Trace/Log Dashboard Displayed
 AlertServer --> Dashboard : Alert Dashboard Displayed
