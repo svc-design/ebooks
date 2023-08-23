@@ -84,3 +84,62 @@
 * Serverless部署：Serverless部署的迁移成本最高。除了需要将应用改造为函数式编程模型，还可能需要使用云服务提供商的特定工具和服务进行数据迁移。
 
 虚拟机部署最为广泛，适合各种类型的应用；容器化部署符合现代云原生应用的趋势，可以提供更好的弹性和可伸缩性；而Serverless部署则可以最大程度地减少运维, 但是也需要最大程度的应用架构改造和重构成本。
+
+# 相关文档链接
+
+Open source software: 
+
+- Nginx - [https://nginx.org/en/docs/](https://nginx.org/en/docs/)
+- MySQL - [https://dev.mysql.com/doc/](https://dev.mysql.com/doc/)
+- PHP - [https://www.php.net/manual/en/](https://www.php.net/manual/en/)
+
+Commercial software: 
+
+- Oracle WebLogic - [https://docs.oracle.com/en/middleware/fusion-middleware/weblogic-server/](https://docs.oracle.com/en/middleware/fusion-middleware/weblogic-server/)
+- IBM DB2 - [https://www.ibm.com/docs/en/db2](https://www.ibm.com/docs/en/db2)
+- Adobe ColdFusion - [https://helpx.adobe.com/coldfusion/user-guide.html](https://helpx.adobe.com/coldfusion/user-guide.html)
+
+SaaS services:
+
+- AWS Elastic Beanstalk - [https://docs.aws.amazon.com/elasticbeanstalk/](https://docs.aws.amazon.com/elasticbeanstalk/)
+- Google App Engine - [https://cloud.google.com/appengine/docs](https://cloud.google.com/appengine/docs)
+- Microsoft Azure App Service - [https://docs.microsoft.com/en-us/azure/app-service/](https://docs.microsoft.com/en-us/azure/app-service/)
+
+AWS:
+
+- Virtual machine: EC2 - [https://aws.amazon.com/ec2/](https://aws.amazon.com/ec2/)
+- RDS - [https://aws.amazon.com/rds/](https://aws.amazon.com/rds/)
+- Containers: ECS - [https://aws.amazon.com/ecs/](https://aws.amazon.com/ecs/)
+- Serverless: Lambda - [https://aws.amazon.com/lambda/](https://aws.amazon.com/lambda/) 
+- Fargate - [https://aws.amazon.com/fargate/](https://aws.amazon.com/fargate/)
+
+GCP:
+
+- Virtual machine: Compute Engine - [https://cloud.google.com/compute](https://cloud.google.com/compute) 
+- Cloud SQL - [https://cloud.google.com/sql](https://cloud.google.com/sql)
+- Containers: Kubernetes Engine - [https://cloud.google.com/kubernetes-engine](https://cloud.google.com/kubernetes-engine)
+- Serverless: Cloud Functions - [https://cloud.google.com/functions](https://cloud.google.com/functions) 
+- Cloud Run - [https://cloud.google.com/run](https://cloud.google.com/run)
+
+Azure:
+
+- Virtual machine: Virtual Machines - [https://azure.microsoft.com/services/virtual-machines/](https://azure.microsoft.com/services/virtual-machines/) 
+- Database - [https://azure.microsoft.com/products/databases/](https://azure.microsoft.com/products/databases/)
+- Containers: Kubernetes Service - [https://azure.microsoft.com/services/kubernetes-service/](https://azure.microsoft.com/services/kubernetes-service/)
+- Serverless: Functions - [https://azure.microsoft.com/services/functions/](https://azure.microsoft.com/services/functions/) 
+- Container Instances - [https://azure.microsoft.com/services/container-instances/](https://azure.microsoft.com/services/container-instances/)
+
+Alibaba Cloud:
+
+- Virtual machine: ECS - [https://www.alibabacloud.com/product/ecs](https://www.alibabacloud.com/product/ecs) 
+- RDS - [https://www.alibabacloud.com/product/apsaradb-for-rds](https://www.alibabacloud.com/product/apsaradb-for-rds)
+- Containers: Container Service - [https://www.alibabacloud.com/product/container-service](https://www.alibabacloud.com/product/container-service)
+- Serverless: Function Compute - [https://www.alibabacloud.com/product/function-compute](https://www.alibabacloud.com/product/function-compute) ECS - [https://www.alibabacloud.com/product/ecs](https://www.alibabacloud.com/product/ecs) 
+- Fargate - [https://www.alibabacloud.com/product/elastic-container-instance](https://www.alibabacloud.com/product/elastic-container-instance)
+
+Tencent Cloud:
+
+- Virtual machine: CVM - [https://cloud.tencent.com/product/cvm](https://cloud.tencent.com/product/cvm) 
+- TencentDB - [https://cloud.tencent.com/product/cdb](https://cloud.tencent.com/product/cdb)
+- Containers: TKE - [https://cloud.tencent.com/product/tke](https://cloud.tencent.com/product/tke)
+- Serverless: SCF - [https://cloud.tencent.com/product/scf](https://cloud.tencent.com/product/scf)
