@@ -4,6 +4,7 @@ top to bottom direction
 
 package "Data Collection" as collector  {
   component CloudQuery
+  component Promtail
   component Prometheus
   component OpenTelemetry
 }

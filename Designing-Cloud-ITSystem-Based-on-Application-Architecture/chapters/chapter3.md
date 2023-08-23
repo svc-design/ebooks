@@ -1,3 +1,9 @@
+
+# 多云监控架构图
+
+![Monitor-system-Architecture-Diagram](URL)
+
+
 基于您的需求，以下是对于多云infra监控管理的概述：
 
 多云infra监控管理是一种涵盖了多个云平台（如AWS、GCP、Microsoft Azure、阿里云和腾讯云）的监控策略。它涉及到对云资源的性能、运行状态、日志等信息的收集、分析和呈现，以帮助运维人员进行故障排查、性能优化和安全管理。
