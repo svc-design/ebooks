@@ -169,28 +169,46 @@ Linux 内核还提供了其他一些优化数据读写的机制：
 
 ## 相关文档链接
 
-| 类型 | 语言 | Redis 文档 | Memcached 文档 |
-| --- | --- | --- | --- |
-| 开源社区 | Java | [Jedis](https://github.com/redis/jedis), [Lettuce](https://github.com/lettuce-io/lettuce-core), [Spring Data Redis](https://spring.io/projects/spring-data-redis) | [XMemcached](https://github.com/killme2008/xmemcached) |
-| 开源社区 | PHP | [PhpRedis](https://github.com/phpredis/phpredis), [Predis](https://github.com/nrk/predis) | [php-memcached](https://pecl.php.net/package/memcached) |
-| 开源社区 | Python | [redis-py](https://github.com/andymccurdy/redis-py) | [pymemcache](https://github.com/pinterest/pymemcache) |
-| 开源社区 | Node.js | [node-redis](https://github.com/NodeRedis/node-redis) | [memcached](https://github.com/3rd-Eden/memcached) |
-| 开源社区 | Go | [go-redis](https://github.com/go-redis/redis) | [memcache](https://github.com/bradfitz/gomemcache) |
-| 开源社区 | Rust | [redis-rs](https://github.com/mitsuhiko/redis-rs) | [rust-memcache](https://github.com/jaysonsantos/rust-memcache) |
-| 开源社区 | C/C++ | [hiredis](https://github.com/redis/hiredis) | [libmemcached](https://libmemcached.org/libMemcached.html) |
-| 开源社区 | Ruby | [redis-rb](https://github.com/redis/redis-rb) | [dalli](https://github.com/petergoldstein/dalli) |
-| 云厂商 | AWS | [Amazon ElastiCache for Redis](https://aws.amazon.com/elasticache/redis/) | [Amazon ElastiCache for Memcached](https://aws.amazon.com/elasticache/memcached/) |
-| 云厂商 | GCP | [Cloud Memorystore for Redis](https://cloud.google.com/memorystore/docs/redis) | N/A |
-| 云厂商 | Azure | [Azure Cache for Redis](https://azure.microsoft.com/en-us/services/cache/) | N/A |
-| 云厂商 | 阿里云 | [阿里云Redis](https://help.aliyun.com/product/26385.html) | [阿里云Memcached](https://help.aliyun.com/product/26528.html) |
-| 云厂商 | 腾讯云 | [腾讯云Redis](https://cloud.tencent.com/product/crs)  | [腾讯云Memcached](https://cloud.tencent.com/product/cmem) |
+**开源社区：**
 
+- **Java：**
+  - Redis 文档：Jedis (https://github.com/redis/jedis), Lettuce (https://github.com/lettuce-io/lettuce-core), Spring Data Redis (https://spring.io/projects/spring-data-redis)
+  - Memcached 文档：XMemcached (https://github.com/killme2008/xmemcached)
+- **PHP：**
+  - Redis 文档：PhpRedis (https://github.com/phpredis/phpredis), Predis (https://github.com/nrk/predis)
+  - Memcached 文档：php-memcached (https://pecl.php.net/package/memcached)
+- **Python：**
+  - Redis 文档：redis-py (https://github.com/andymccurdy/redis-py)
+  - Memcached 文档：pymemcache (https://github.com/pinterest/pymemcache)
+- **Node.js：**
+  - Redis 文档：node-redis (https://github.com/NodeRedis/node-redis)
+  - Memcached 文档：memcached (https://github.com/3rd-Eden/memcached)
+- **Go：**
+  - Redis 文档：go-redis (https://github.com/go-redis/redis)
+  - Memcached 文档：memcache (https://github.com/bradfitz/gomemcache)
+- **Rust：**
+  - Redis 文档：redis-rs (https://github.com/mitsuhiko/redis-rs)
+  - Memcached 文档：rust-memcache (https://github.com/jaysonsantos/rust-memcache)
+- **C/C++：**
+  - Redis 文档：hiredis (https://github.com/redis/hiredis)
+  - Memcached 文档：libmemcached (https://libmemcached.org/libMemcached.html)
+- **Ruby：**
+  - Redis 文档：redis-rb (https://github.com/redis/redis-rb)
 
-| 云厂商 | 服务名称 | 文档链接 |
-| ------ | -------- | -------- |
-| AWS (Amazon Web Service) | Amazon MQ, Amazon SQS, Amazon SNS | [Amazon MQ](https://aws.amazon.com/mq/), [Amazon SQS](https://aws.amazon.com/sqs/), [Amazon SNS](https://aws.amazon.com/sns/) |
-| GCP (Google Cloud Platform) | Cloud Pub/Sub, Cloud Tasks | [Cloud Pub/Sub](https://cloud.google.com/pubsub/docs), [Cloud Tasks](https://cloud.google.com/tasks/docs) |
-| Azure (微软) | Azure Service Bus, Azure Event Hubs | [Azure Service Bus](https://azure.microsoft.com/en-us/services/service-bus/), [Azure Event Hubs](https://azure.microsoft.com/en-us/services/event-hubs/) |
-| 阿里云 | 阿里云消息服务 (MNS), 阿里云RocketMQ | [阿里云消息服务MNS](https://help.aliyun.com/product/27412.html), [阿里云RocketMQ](https://help.aliyun.com/product/29530.html) |
-| 腾讯云 | 腾讯云CMQ, 腾讯云TDMQ | [腾讯云CMQ](https://cloud.tencent.com/product/cmq), [腾讯云TDMQ](https://cloud.tencent.com/product/tdmq) |
+**云厂商：**
 
+- **AWS (Amazon Web Service)**：
+  - 服务名称：Amazon MQ, Amazon SQS, Amazon SNS
+  - 文档链接：Amazon MQ (https://aws.amazon.com/mq/), Amazon SQS (https://aws.amazon.com/sqs/), Amazon SNS (https://aws.amazon.com/sns/)
+- **GCP (Google Cloud Platform)**：
+  - 服务名称：Cloud Pub/Sub, Cloud Tasks
+  - 文档链接：Cloud Pub/Sub (https://cloud.google.com/pubsub/docs), Cloud Tasks (https://cloud.google.com/tasks/docs)
+- **Azure (微软)**：
+  - 服务名称：Azure Service Bus, Azure Event Hubs
+  - 文档链接：Azure Service Bus (https://azure.microsoft.com/en-us/services/service-bus/), Azure Event Hubs (https://azure.microsoft.com/en-us/services/event-hubs/)
+- **阿里云**：
+  - 服务名称：阿里云消息服务 (MNS), 阿里云RocketMQ
+  - 文档链接：阿里云消息服务MNS (https://help.aliyun.com/product/27412.html), 阿里云RocketMQ (https://help.aliyun.com/product/29530.html)
+- **腾讯云**：
+  - 服务名称：腾讯云CMQ, 腾讯云TDMQ
+  - 文档链接：腾讯云CMQ (https://cloud.tencent.com/product/cmq), 腾讯云TDMQ (https://cloud.tencent.com/product/tdmq)
