@@ -4,9 +4,10 @@
 pandoc \
   -S \
   -o output/my-ebook.epub \
-  cover.md \
+  cover.md        \
   introduction.md \
-  chapters/*.md \
+  main.md         \
+  chapters/*.md   \
   conclusion.md
 
 # Convert EPUB to PDF (optional)
