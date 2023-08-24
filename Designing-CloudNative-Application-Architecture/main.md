@@ -8,9 +8,10 @@
 - [Chapter 1:云上应用技术架构](chapters/chapter1.md)
 - [Chapter 1.1:云上LNMP应用](chapters/chapter1.1.md)
 - [Chapter 1.2:缓存与队列](chapters/chapter1.2.md)
-- [Chapter 1.4:CDN加速](chapters/chapter1.3.md)
+- [Chapter 1.3:CDN加速](chapters/chapter1.3.md)
 - [Chapter 1.5:API网关服务](chapters/chapter1.4.md)
-- [Chapter 1.6:业务拆分,分布式,微服务化](chapters/chapter1.5.md)
+- [Chapter 1.5:业务拆分,分布式,微服务化](chapters/chapter1.5.md)
+- [Chapter 1.6:Serverless](chapters/chapter1.7.md)
 
 - [Chapter 2:云上应用数据架构](chapters/chapter2.md)
 - [Chapter 2.1:数据类型](chapters/chapter2.1.md)
