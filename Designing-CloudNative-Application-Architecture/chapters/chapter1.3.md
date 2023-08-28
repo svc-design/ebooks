@@ -56,24 +56,26 @@
 
 **硬件和网络技术：**
 
-1. 高带宽交换机：https://www.cisco.com/c/en/us/products/switches/what-is-a-network-switch.html
-2. 智能网卡：https://en.wikipedia.org/wiki/SmartNIC
-3. F5：https://www.f5.com/services/resources/glossary/load-balancer
-1. 等价多路径（ECMP）：https://en.wikipedia.org/wiki/Equal-cost_multi-path_routing
-2. RDMA over Converged Ethernet (RoCE)：https://www.roceinitiative.org/roce-technology/
-3. Open vSwitch (OVS)：https://www.openvswitch.org/
-4. SDN（Software Defined Networking)：https://www.sdxcentral.com/networking/sdn/definitions/software-defined-networking-sdn-definition/
-5. NFV（Network Functions Virtualization)：https://www.sdxcentral.com/networking/nfv/definitions/nfv-network-functions-virtualization/
+* 高带宽交换机：https://www.cisco.com/c/en/us/products/switches/what-is-a-network-switch.html
+* 智能网卡：https://en.wikipedia.org/wiki/SmartNIC
+* F5：https://www.f5.com/services/resources/glossary/load-balancer
+* 等价多路径（ECMP）：https://en.wikipedia.org/wiki/Equal-cost_multi-path_routing
+* RDMA over Converged Ethernet (RoCE)：https://www.roceinitiative.org/roce-technology/
+* Open vSwitch (OVS)：https://www.openvswitch.org/
+* SDN（Software Defined Networking)：https://www.sdxcentral.com/networking/sdn/definitions/software-defined-networking-sdn-definition/
+* NFV（Network Functions Virtualization)：https://www.sdxcentral.com/networking/nfv/definitions/nfv-network-functions-virtualization/
 
 **多租户隔离技术：**
-- https://www.cisco.com/c/en/us/solutions/collateral/data-center-virtualization/unified-fabric/white_paper_c11-730021.html
+
+* https://www.cisco.com/c/en/us/solutions/collateral/data-center-virtualization/unified-fabric/white_paper_c11-730021.html
 
 **云厂商自研硬件：**
-1. AWS Nitro：https://aws.amazon.com/ec2/nitro/
-2. Google Andromeda 虚拟网络堆栈：https://cloud.google.com/blog/products/networking/andromeda-22-ga-enabling-faster-simpler-and-more-reliable-cloud-networking
-3. Azure SmartNIC：https://azure.microsoft.com/en-us/blog/smartnics-in-the-public-cloud/
-4. 阿里云 X-Dragon：https://www.alibabacloud.com/blog/alibaba-cloud-launches-x-dragon-to-ramp-up-rds-performance_594738
-5. 腾讯云FPGA自研智能网卡：https://www.xilinx.com/solutions/data-center/data-center-acceleration/smart-nic.html
+
+* AWS Nitro：https://aws.amazon.com/ec2/nitro/
+* Google Andromeda 虚拟网络堆栈：https://cloud.google.com/blog/products/networking/andromeda-22-ga-enabling-faster-simpler-and-more-reliable-cloud-networking
+* Azure SmartNIC：https://azure.microsoft.com/en-us/blog/smartnics-in-the-public-cloud/
+* 阿里云 X-Dragon：https://www.alibabacloud.com/blog/alibaba-cloud-launches-x-dragon-to-ramp-up-rds-performance_594738
+* 腾讯云FPGA自研智能网卡：https://www.xilinx.com/solutions/data-center/data-center-acceleration/smart-nic.html
 
 **开源软件技术**：
 

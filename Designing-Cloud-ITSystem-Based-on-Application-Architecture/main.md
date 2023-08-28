@@ -44,13 +44,4 @@
 - [Chapter 6.7:API服务测试](chapters/chapter6.7.md)
 - [Chapter 6.8:DevOPS-AIOPS](chapters/chapter6.8.md)
 
-- [Chapter 7: 自动化](chapters/chapter7.md)
-- [Chapter 7.1: 开发设计](chapters/chapter7.1.md)
-- [Chapter 7.2: 账户管理](chapters/chapter7.2.md)
-- [Chapter 7.3: 资源管理](chapters/chapter7.3.md)
-- [Chapter 7.4: 应用发布](chapters/chapter7.4.md)
-- [Chapter 7.5: 监控告警](chapters/chapter7.5.md)
-- [Chapter 7.6: 成本管理](chapters/chapter7.6.md)
-- [Chapter 7.7: 安全合规](chapters/chapter7.6.md)
-
 [Conclusion](conclusion.md)

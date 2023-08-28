@@ -1,0 +1,20 @@
+@startuml
+title System Architecture Diagram
+
+actor "Prometheus Agent" as PAgent
+database "Prometheus" as Prometheus
+database "ClickHouse" as ClickHouse
+actor "Log Agent" as LAgent
+actor "Grafana" as Grafana
+actor "AlertManager" as AlertManager
+
+PAgent --> Prometheus : remote-write
+Prometheus --> ClickHouse : remote-restore
+LAgent --> ClickHouse : log
+Prometheus --> Grafana : data
+Prometheus --> AlertManager : alerts
+AlertManager --> Grafana : alerts
+ClickHouse --> Grafana : logql
+
+@enduml
+

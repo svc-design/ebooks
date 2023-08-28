@@ -695,7 +695,7 @@ Tencent Cloud
 5. **EdgeX Foundry**: [https://docs.edgexfoundry.org/](https://docs.edgexfoundry.org/)
 公有云服务商在基础网络和硬件方面的选择和实践会因其独特的业务需求和技术能力而有所不同。以下是一些对比：
 
-**基础网络：**
+**基础网络：*
 
 - **AWS**：AWS使用其自研的网络协议，如HyperPlane，为其多种服务（如NAT Gateway和Network Load Balancer）提供高吞吐量、低延迟的网络连接。同时，AWS Direct Connect服务提供了一种专用的网络连接，将客户的网络直接连接到AWS的数据中心。
 
