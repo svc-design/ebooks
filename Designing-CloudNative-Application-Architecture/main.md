@@ -10,8 +10,8 @@
 - [Chapter 1.2:缓存与队列](chapters/chapter1.2.md)
 - [Chapter 1.3:负载均衡](chapters/chapter1.3.md)
 - [Chapter 1.4:CDN与边缘计算](chapters/chapter1.4.md)
-- [Chapter 1.5:API网关服务](chapters/chapter1.5.md)
-- [Chapter 1.6:业务拆分,分布式,微服务化](chapters/chapter1.6.md)
+- [Chapter 1.5:微服务与API网关](chapters/chapter1.5.md)
+- [Chapter 1.6:业务拆分,分布式](chapters/chapter1.6.md)
 - [Chapter 1.7:Serverless](chapters/chapter1.7.md)
 
 - [Chapter 2:云上应用数据架构](chapters/chapter2.md)
@@ -40,13 +40,3 @@
 - [Chapter 5.2:性能测试](chapters/chapter5.2.md)
 - [Chapter 5.3:可用性测试](chapters/chapter5.3.md)
 - [Chapter 5.4:应用安全测试](chapters/chapter5.4.md)
-
-- [Chapter 6:自动化](chapters/chapter6.md)
-- [Chapter 6.1:自动化测试](chapters/chapter6.1.md)
-- [Chapter 6.2:自动化发布](chapters/chapter6.2.md)
-- [Chapter 6.3:自动化分析](chapters/chapter6.3.md)
-- [Chapter 6.4:DataOPS自动化](chapters/chapter6.4.md)
-- [Chapter 6.5:GitOPS自动化](chapters/chapter6.5.md)
-- [Chapter 6.6:MLOPS自动化](chapters/chapter6.6.md)
-
-[Conclusion](conclusion.md)
