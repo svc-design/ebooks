@@ -13,16 +13,17 @@
 - [Chapter 1.5: 集中认证](chapters/chapter1.5.md)
 
 - [Chapter 2: 资源管理](chapters/chapter2.md)
-- [Chapter 2.1: 计算资源](chapters/chapter2.1.md)
-- [Chapter 2.2: 存储资源](chapters/chapter2.1.md)
-- [Chapter 2.2: 网络资源](chapters/chapter2.3.md)
-- [Chapter 2.2: 服务资源](chapters/chapter2.4.md)
+- [Chapter 2.1: 网络资源](chapters/chapter2.1.md)
+- [Chapter 2.2: 计算资源](chapters/chapter2.2.md)
+- [Chapter 2.3: 存储资源](chapters/chapter2.3.md)
+- [Chapter 2.4: 服务资源](chapters/chapter2.4.md)
 
 - [Chapter 3: 监控管理](chapters/chapter3.md)
 - [Chapter 3.1: 指标系统](chapters/chapter3.1.md)
 - [Chapter 3.2: 日志系统](chapters/chapter3.2.md)
 - [Chapter 3.3: 应用管理](chapters/chapter3.3.md)
 - [Chapter 3.4: 可观测性](chapters/chapter3.4.md)
+- [Chapter 3.5: 混沌工程](chapters/chapter3.5.md)
 
 - [Chapter 4: 安全与合规](chapters/chapter4.md)
 - [Chapter 4.1: 身份安全](chapters/chapter4.1.md)

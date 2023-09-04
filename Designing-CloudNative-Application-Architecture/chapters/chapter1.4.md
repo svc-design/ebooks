@@ -265,6 +265,18 @@ SSL/TLS加速主要用于提高使用SSL/TLS加密的网站的连接速度。CDN
 商业软件：VMware vSphere, Microsoft Azure Stack, AWS Greengrass, IBM Edge Application Manager 
 云厂商服务：AWS Outposts, Google Anthos, Azure Stack Edge, 阿里云 边缘计算, 腾讯云 边缘计算
 
+## 云服务提供商及其边缘计算托管服务对比参考
+
+以下是一些主要的云服务提供商及其边缘计算托管服务的相关信息：
+
+| 云服务提供商 | 服务名称 | 特性 | 支持的网络协议 |
+| --- | --- | --- | --- |
+| Amazon Web Services (AWS) | AWS Outposts, AWS Wavelength, AWS Snowball Edge | AWS Outposts提供在本地部署AWS服务的能力，包括EC2、EBS和S3等；Wavelength则是专为5G网络设计的服务，可以在通信服务提供商的数据中心部署AWS应用；Snowball Edge是一种物理设备，用于在无网络或低带宽环境中运行和存储数据。 | HTTP, HTTPS, TCP/IP |
+| Google Cloud Platform (GCP) | Google Anthos | Anthos是一种混合云和多云平台，可以在Google Cloud、本地或其他公共云上运行应用。Anthos使用Kubernetes作为容器编排引擎，并提供服务网格和配置管理能力。 | HTTP, HTTPS, TCP/IP |
+| Microsoft Azure | Azure Stack, Azure Edge Zones | Azure Stack允许在本地部署Azure服务，支持混合云环境；Azure Edge Zones则是专为5G网络设计的服务，可以在通信服务提供商的数据中心部署Azure应用。 | HTTP, HTTPS, TCP/IP |
+| 阿里云 | 阿里云边缘计算IoT版 | 这项服务提供了在设备边缘上运行计算任务的能力，支持设备管理、数据处理和设备安全等功能。 | HTTP, HTTPS, TCP/IP |
+| 腾讯云 | 腾讯云边缘计算机器视觉解决方案 | 这项服务提供了在设备边缘上运行计算任务的能力，支持设备管理、数据处理和设备安全等功能。 | HTTP, HTTPS, TCP/IP |
+
 ## 使用 边缘计算后 应用架构涉及哪些适配与调整？ （对比各种语言  java php python nodejs vue3 react go rust c/c++ ruby  的应用系统）
 使用边缘计算后，应用架构可能需要考虑以下几个方面的适配和调整：
 - 数据同步：边缘节点和云端之间的数据同步策略

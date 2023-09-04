@@ -10,8 +10,8 @@
 - [Chapter 1.2:缓存与队列](chapters/chapter1.2.md)
 - [Chapter 1.3:负载均衡](chapters/chapter1.3.md)
 - [Chapter 1.4:CDN与边缘计算](chapters/chapter1.4.md)
-- [Chapter 1.5:微服务与API网关](chapters/chapter1.5.md)
-- [Chapter 1.6:业务拆分,分布式](chapters/chapter1.6.md)
+- [Chapter 1.5:从单体到分布式](chapters/chapter1.5.md)
+- [Chapter 1.6:API网关](chapters/chapter1.6.md)
 - [Chapter 1.7:Serverless](chapters/chapter1.7.md)
 
 - [Chapter 2:云上应用数据架构](chapters/chapter2.md)
