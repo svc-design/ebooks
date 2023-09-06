@@ -23,7 +23,7 @@
 - [Chapter 3.2: 日志系统](chapters/chapter3.2.md)
 - [Chapter 3.3: 应用管理](chapters/chapter3.3.md)
 - [Chapter 3.4: 可观测性](chapters/chapter3.4.md)
-- [Chapter 3.5: 混沌工程](chapters/chapter3.5.md)
+- [Chapter 3.5: 混沌工程](chapters/chapter3.5-chaos.md)
 
 - [Chapter 4: 安全与合规](chapters/chapter4.md)
 - [Chapter 4.1: 身份安全](chapters/chapter4.1.md)

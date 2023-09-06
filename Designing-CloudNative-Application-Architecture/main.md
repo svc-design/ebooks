@@ -12,7 +12,8 @@
 - [Chapter 1.4:CDN与边缘计算](chapters/chapter1.4.md)
 - [Chapter 1.5:从单体到分布式](chapters/chapter1.5.md)
 - [Chapter 1.6:API网关](chapters/chapter1.6.md)
-- [Chapter 1.7:Serverless](chapters/chapter1.7.md)
+- [Chapter 1.7:函数计算](chapters/chapter1.7.md)
+- [Chapter 1.7:WebAssembly](chapters/chapter1.8.md)
 
 - [Chapter 2:云上应用数据架构](chapters/chapter2.md)
 - [Chapter 2.1:数据类型](chapters/chapter2.1.md)
