@@ -1,0 +1,130 @@
+@startuml
+title Multi-Environment Microservices Architecture
+
+top to bottom direction
+
+package "User Interface" {
+  actor "Users" as users
+}
+
+package "API Gateway" {
+    [SIT API Gateway]
+    [UAT API Gateway]
+    [PROD API Gateway]
+}
+
+cloud "CDN" {
+    [Cloudflare]
+}
+
+package "SaaS " {
+   rectangle [DataDog]
+   rectangle [Okta]
+   rectangle [Sendgrid]
+   rectangle [Stripe]
+}
+
+package "Cluster" {
+  cloud "SIT K8S Cluster" {
+        [SIT Cluster]
+    }
+  cloud "UAT K8S Cluster" {
+        [UAT Cluster]
+    }
+  cloud "PROD K8S Cluster" {
+        [PROD Cluster]
+    }
+}
+
+package "Cluster DB" {
+    cloud "SIT DB"
+    cloud "UAT DB"
+    cloud "PROD DB"
+    cloud "SIT Mongon DB"
+    cloud "UAT Mongon DB"
+    cloud "PROD Mongon DB" 
+}
+
+package "MiddleWare Services" {
+    [Message Queue] 
+    [SIT Cache]
+    [UAT Cache]
+    [PROD Cache]
+}
+
+package "Data Services" {
+    [DTS/ETL Service]
+}
+
+
+package "BigDataAna Services" {
+    [AWS Glue]
+    [Apache Spark]
+    [Amazon Redshift]
+    [Google BigQuery]
+}
+
+[Users] -down-> [Cloudflare]
+
+[Cloudflare] -down-> [SIT API Gateway]
+[Cloudflare] -down-> [UAT API Gateway]
+[Cloudflare] -down-> [PROD API Gateway]
+
+[SIT API Gateway] -down-> [SIT Cluster]
+[UAT API Gateway] -down-> [UAT Cluster]
+[PROD API Gateway] -down-> [PROD Cluster]
+
+[SIT Cluster] -l-> [DataDog]
+[UAT Cluster] -l-> [DataDog]
+[PROD Cluster] -l-> [DataDog]
+
+[SIT Cluster] -l-> [Okta]
+[UAT Cluster] -l-> [Okta]
+[PROD Cluster] -l-> [Okta]
+
+[SIT Cluster] -l-> [Sendgrid]
+[UAT Cluster] -l-> [Sendgrid]
+[PROD Cluster] -l-> [Sendgrid]
+
+[SIT Cluster] -l-> [Stripe]
+[UAT Cluster] -l-> [Stripe]
+[PROD Cluster] -l-> [Stripe]
+
+[SIT Cluster] -down-> [SIT DB]
+[UAT Cluster] -down-> [UAT DB]
+[PROD Cluster] -down-> [PROD DB]
+
+[SIT Cluster] -down-> [SIT Cache]
+[UAT Cluster] -down-> [UAT Cache]
+[PROD Cluster] -down-> [PROD Cache]
+
+[SIT Cache] -down-> [SIT DB]
+[UAT Cache] -down-> [UAT DB]
+[PROD Cache] -down-> [PROD DB]
+
+
+[SIT DB] -down-> [DTS/ETL Service]
+[UAT DB] -down-> [DTS/ETL Service]
+[PROD DB] -down-> [DTS/ETL Service]
+
+[SIT Cluster] -down-> [SIT Mongon DB]
+[UAT Cluster] -down-> [UAT Mongon DB]
+[PROD Cluster] -down-> [PROD Mongon DB]
+
+
+[SIT Cluster] -down-> [Message Queue]
+[UAT Cluster] -down-> [Message Queue]
+[PROD Cluster] -down-> [Message Queue]
+
+
+[Message Queue] -down-> [DTS/ETL Service]
+
+[SIT Mongon DB] -down-> [DTS/ETL Service]
+[UAT Mongon DB] -down-> [DTS/ETL Service]
+[PROD Mongon DB] -down-> [DTS/ETL Service]
+
+[DTS/ETL Service] -down-> [Apache Spark]
+[DTS/ETL Service] -down-> [Amazon Redshift]
+[DTS/ETL Service] -down-> [AWS Glue]
+
+@enduml
