@@ -19,3 +19,6 @@
 
 - [Chapter 5: Chatbot/LLMs/vectorDB](chapters/chapter5.md)
 - [Chapter 5.1:云上LNMP应用](chapters/chapter5.1.md)
+
+- [Chapter 6: Chaos/FIS](chapters/chapter5.md)
+- [Chapter 6.1:云上LNMP应用](chapters/chapter5.1.md)
