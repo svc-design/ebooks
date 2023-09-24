@@ -30,6 +30,7 @@
 - [Chapter 4.2: 网络安全](chapters/chapter4.2.md)
 - [Chapter 4.3: 数据安全](chapters/chapter4.3.md)
 - [Chapter 4.4: 合规审计](chapters/chapter4.4.md)
+- [Chapter 4.5: SIME管理](chapters/chapter4.5.md)
 
 - [Chapter 5: 成本管理](chapters/chapter5.md)
 - [Chapter 5.1: 资源利用率](chapters/chapter5.1.md)

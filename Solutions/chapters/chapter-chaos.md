@@ -283,3 +283,287 @@ Chaos Mesh 是设计用来在 Kubernetes 集群中注入和管理各种类型的
 同样，如果你运行了一个网络故障实验，Chaos Mesh 会在实验期间影响选定的网络连接。然而，一旦实验结束，Chaos Mesh 将会自动恢复网络连接到实验开始前的状态。
 
 总的来说，Chaos Mesh 的设计原则是让 Chaos 实验对系统产生最小的副作用，并且能够在实验结束后自动恢复系统。这是通过 Kubernetes 的自我修复能力以及 Chaos Mesh 的自动恢复机制来实现的。
+
+
+Chaos Toolkit 是一个开源的 Chaos Engineering 工具，它支持对各种系统进行 Chaos 实验，包括 AWS。
+
+对于模拟 AWS PaaS 服务（如 KMS）的故障，你可以通过编写一个 Chaos 实验的 JSON 文件，然后使用 Chaos Toolkit 运行这个实验。
+
+例如，你可以模拟 KMS ID 丢失的故障，以下是一个可能的 Chaos 实验的 JSON 文件：
+
+Copy
+{
+    "version": "1.0.0",
+    "title": "Simulate KMS ID loss",
+    "description": "This experiment simulates the loss of a KMS ID",
+    "tags": ["aws", "kms"],
+    "method": [
+        {
+            "type": "action",
+            "name": "disable-key",
+            "provider": {
+                "type": "python",
+                "module": "chaosaws.kms.actions",
+                "func": "disable_key",
+                "arguments": {
+                    "key_id": "<your-kms-id>",
+                    "secret_key": "<your-aws-secret-key>",
+                    "region_name": "<your-aws-region>"
+                }
+            }
+        }
+    ],
+    "rollbacks": [
+        {
+            "type": "action",
+            "name": "enable-key",
+            "provider": {
+                "type": "python",
+                "module": "chaosaws.kms.actions",
+                "func": "enable_key",
+                "arguments": {
+                    "key_id": "<your-kms-id>",
+                    "secret_key": "<your-aws-secret-key>",
+                    "region_name": "<your-aws-region>"
+                }
+            }
+        }
+    ]
+}
+在这个实验中，"method" 部分定义了实验的行动，即禁用一个 KMS 密钥。"rollbacks" 部分定义了如何在实验结束后恢复系统，即启用这个 KMS 密钥。
+
+要运行这个实验，你可以使用以下命令：
+
+Copy
+chaos run your-experiment.json
+请注意，你需要在 JSON 文件中替换 <your-kms-id>、<your-aws-secret-key> 和 <your-aws-region> 为你的实际值。并确保你已经安装了 Chaos Toolkit 和 Chaos Toolkit AWS 插件。
+
+在运行实验时，请确保你完全理解实验的影响，并确保已经做好了适当的备份和恢复计划。
+
+secret_key 换成 assmrole
+
+如果你想使用 AWS 的 IAM 角色（AssumeRole）来进行认证，你可以修改 Chaos Toolkit 的实验 JSON 文件，将 "secret_key" 参数替换为 "role_arn" 参数。然后，Chaos Toolkit 将会使用 AWS Security Token Service (STS) 来 AssumeRole，获取临时的安全凭证。
+
+以下是修改后的 Chaos 实验的 JSON 文件：
+
+Copy
+{
+    "version": "1.0.0",
+    "title": "Simulate KMS ID loss",
+    "description": "This experiment simulates the loss of a KMS ID",
+    "tags": ["aws", "kms"],
+    "method": [
+        {
+            "type": "action",
+            "name": "disable-key",
+            "provider": {
+                "type": "python",
+                "module": "chaosaws.kms.actions",
+                "func": "disable_key",
+                "arguments": {
+                    "key_id": "<your-kms-id>",
+                    "role_arn": "<your-assume-role-arn>",
+                    "region_name": "<your-aws-region>"
+                }
+            }
+        }
+    ],
+    "rollbacks": [
+        {
+            "type": "action",
+            "name": "enable-key",
+            "provider": {
+                "type": "python",
+                "module": "chaosaws.kms.actions",
+                "func": "enable_key",
+                "arguments": {
+                    "key_id": "<your-kms-id>",
+                    "role_arn": "<your-assume-role-arn>",
+                    "region_name": "<your-aws-region>"
+                }
+            }
+        }
+    ]
+}
+请注意，你需要在 JSON 文件中替换 "<your-kms-id>", "<your-assume-role-arn>", 和 "<your-aws-region>" 为你的实际值。
+
+结合 Gitlab CI pipeline 完成 AWS PaaS 服务（如 依赖的 KMS ID 异常删除）的故障
+
+要结合 GitLab CI pipeline 完成 AWS PaaS 服务（如依赖的 KMS ID 异常删除）的故障，你需要在你的 GitLab 项目中添加一个 .gitlab-ci.yml 文件，然后在这个文件中定义一个 pipeline，用来运行你的 Chaos 实验。
+
+以下是一个可能的 .gitlab-ci.yml 文件：
+
+Copy
+stages:
+  - chaos
+
+chaos_experiment:
+  stage: chaos
+  image: chaostoolkit/chaostoolkit
+  script:
+    - chaos run /path/to/your/experiment.json
+  artifacts:
+    paths:
+      - /path/to/your/report.json
+  only:
+    - master
+在这个 pipeline 中，chaos_experiment 是一个 job，它使用 Chaos Toolkit 的 Docker 镜像来运行你的 Chaos 实验。你需要将 /path/to/your/experiment.json 替换为你的实验 JSON 文件的实际路径。
+
+然后，这个 job 将会生成一个报告文件（默认为 report.json），并将其作为 artifact 保存。你需要将 /path/to/your/report.json 替换为你的报告文件的实际路径。
+
+最后，这个 pipeline 只在 master 分支上运行。
+
+请注意，你需要在你的 GitLab 项目的 CI/CD 设置中配置 AWS 的认证信息（如 AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, 和 AWS_SESSION_TOKEN），以便 Chaos Toolkit 可以访问你的 AWS 资源。
+
+
+Chaos Toolkit 和 Grafana 都是强大且灵活的开源工具，它们都支持通过插件来扩展其功能。以下是一些常见的 Chaos Toolkit 和 Grafana 的插件：
+
+Chaos Toolkit 插件：
+
+Chaos Toolkit Kubernetes：这个插件允许 Chaos Toolkit 对 Kubernetes 集群进行 Chaos 实验。
+
+Chaos Toolkit AWS：这个插件允许 Chaos Toolkit 对 AWS 服务进行 Chaos 实验。
+
+Chaos Toolkit Google Cloud：这个插件允许 Chaos Toolkit 对 Google Cloud 服务进行 Chaos 实验。
+
+Chaos Toolkit Azure：这个插件允许 Chaos Toolkit 对 Azure 服务进行 Chaos 实验。
+
+Chaos Toolkit OpenStack：这个插件允许 Chaos Toolkit 对 OpenStack 服务进行 Chaos 实验。
+
+Grafana 插件：
+
+Prometheus：这是一个用于时间序列数据的开源监控和警告工具，可以与 Grafana 集成。
+
+Graphite：这是一个用于存储、检索、和绘制时间序列数据的开源工具，可以与 Grafana 集成。
+
+InfluxDB：这是一个用于时间序列数据的开源数据库，可以与 Grafana 集成。
+
+Loki：这是一个用于日志聚合的开源工具，由 Grafana Labs 开发，可以与 Grafana 集成。
+
+Worldmap Panel：这是一个 Grafana 的面板插件，可以在地图上展示数据。
+
+Pie Chart Panel：这是一个 Grafana 的面板插件，可以以饼图的形式展示数据。
+
+以上只是一部分插件的示例，Chaos Toolkit 和 Grafana 都支持更多的插件，可以满足各种不同的需求。
+
+Chaos Toolkit 阿里云
+
+Chaos Toolkit 是一个开源的混沌工程工具，它提供了一种声明性的方式来定义和运行混沌实验。Chaos Toolkit 有很多插件，可以支持各种不同的平台和服务。
+
+然而，截至目前（2023年9月12日），Chaos Toolkit 还没有官方支持阿里云的插件。这意味着你不能直接使用 Chaos Toolkit 来对阿里云服务进行混沌实验。
+
+如果你需要对阿里云服务进行混沌实验，你可能需要自己开发一个 Chaos Toolkit 的插件，或者使用其他支持阿里云的混沌工程工具，如 LitmusChaos。
+
+另外，你也可以关注 Chaos Toolkit 的 GitHub 仓库或官方网站，以获取最新的插件和功能更新。
+
+介绍下  LitmusChaos
+
+LitmusChaos 是一个开源的混沌工程平台，它可以帮助开发者和 SRE（Site Reliability Engineering，网站可靠性工程师）在 Kubernetes 环境中进行混沌实验。LitmusChaos 的目标是让开发者和 SRE 更容易地进行混沌实验，以提高他们的应用和基础设施的弹性。
+
+以下是一些 LitmusChaos 的主要特性：
+
+丰富的混沌实验库：LitmusChaos 提供了一个丰富的混沌实验库，包括对 Pod、网络、磁盘、CPU、内存等资源的故障注入，以及特定于某些应用（如 Kafka、CoreDNS 等）的混沌实验。
+
+易于使用：LitmusChaos 使用了声明性的 YAML 文件来定义混沌实验，这使得混沌实验的创建和管理变得非常简单。
+
+可观察性和分析：LitmusChaos 提供了深度集成的观察性和分析功能，包括实时的 Chaos Dashboard、事件记录、以及与 Prometheus 和 Grafana 的集成。
+
+多租户：LitmusChaos 支持多租户，这意味着你可以在同一个 Kubernetes 集群中为不同的用户或团队运行不同的混沌实验。
+
+跨云和混合云：LitmusChaos 可以在任何 Kubernetes 兼容的环境中运行，包括公有云、私有云、和混合云。
+
+社区驱动：LitmusChaos 有一个活跃的开源社区，社区成员不断地贡献新的混沌实验和功能。
+
+总的来说，LitmusChaos 是一个强大而灵活的混沌工程工具，无论你是在开发阶段还是在生产环境中，都可以使用 LitmusChaos 来提高你的系统的弹性。
+
+LitmusChaos 和 ChaosMesh 优劣 特性对比
+
+LitmusChaos 和 Chaos Mesh 都是优秀的开源混沌工程工具，它们都可以在 Kubernetes 环境中进行混沌实验。以下是它们的一些主要特性和优势：
+
+LitmusChaos：
+
+丰富的混沌实验库：LitmusChaos 提供了一个丰富的混沌实验库，包括对 Pod、网络、磁盘、CPU、内存等资源的故障注入。
+
+易于使用：LitmusChaos 使用了声明性的 YAML 文件来定义混沌实验，这使得混沌实验的创建和管理变得非常简单。
+
+可观察性和分析：LitmusChaos 提供了深度集成的观察性和分析功能，包括实时的 Chaos Dashboard、事件记录，以及与 Prometheus 和 Grafana 的集成。
+
+多租户支持：LitmusChaos 支持多租户，这意味着你可以在同一个 Kubernetes 集群中为不同的用户或团队运行不同的混沌实验。
+
+Chaos Mesh：
+
+全面的故障类型：Chaos Mesh 支持多种故障类型，包括 Pod 故障、网络故障、文件系统故障、以及 I/O 故障等。
+
+强大的调度功能：Chaos Mesh 支持复杂的调度规则，例如按照固定的间隔、特定的时间点（如每天的 3:00 AM）、或者固定的次数来运行混沌实验。
+
+可视化操作：Chaos Mesh 提供了一个可视化的 Web UI，使得用户可以更方便地创建和管理混沌实验。
+
+安全性：Chaos Mesh 支持权限管理和多租户，可以保证混沌实验的安全性。
+
+在选择使用 LitmusChaos 还是 Chaos Mesh 时，你需要根据你的具体需求来决定。例如，如果你需要一个丰富的混沌实验库，或者需要深度集成的观察性和分析功能，那么 LitmusChaos 可能是一个好选择。而如果你需要复杂的调度规则，或者需要可视化操作，那么 Chaos Mesh 可能更适合你。
+
+
+Litmus 的组成部件
+
+
+
+
+
+Chaos Operator 
+
+使用 Operator SDK 框架构建，管理着混沌实验的生命周期
+
+
+
+Chaos CRD 
+
+主要包括三个 Chaos CRD：ChaosEngine，ChaosExperiment 和 ChaosResult。使用上述 CRD 构建、运行和管理混沌实验。ChaosEngine CRD 将目标应用程序与 ChaosExperiment 自定义资源绑定在一起。运行时，结果将存储在 ChaosResult 自定义资源中。
+
+
+
+混沌实验 ChaosHub 
+
+混沌实验是 K8s 上的自定义资源，以 YAML 规范托管在公共实验库 ChaosHub 上 (https://hub.litmuschaos.io)。
+
+
+
+Chaos Scheduler 
+
+混沌调度器支持对混沌实验进行精细化调度。
+
+
+
+混沌指标导出器 (Chaos Metrics Exporter) 
+
+这是 Prometheus 指标导出器。诸如数量、实验类型及其结果之类的混沌实验指标都将导出到 Prometheus 中。然后就可以把这些指标和目标应用的指标组合在一起绘制，以显示混沌对应用服务或性能的影响。
+
+
+
+混沌事件导出器 (Chaos Events Exporter) 
+
+Litmus 会为每次发生的混沌注入动作生成一个混沌事件。这些混沌事件存储在 etcd 中，然后导出到事件接收器，以便对受混沌注入影响的服务进行关联或调试。
+
+
+
+控制台 (Portal) 
+
+Litmus Portal 是用于创建、调度和监控混沌工作流的 Web 控制台。SRE 团队可以共享控制台，同时通过控制台管理混沌实验。
+
+
+
+混沌工作流 (Chaos Workflow)
+
+混沌工作流是由一组混沌实验组成，可从控制台在远程 K8s 集群上调度混沌工作流。
+
+
+以下是一个 Chaos Mesh 和 LitmusChaos 的特性对比表格：
+
+| 特性 / 工具 | Chaos Mesh | LitmusChaos |
+|---|---|---|
+| **混沌实验库** | 提供了丰富的混沌实验类型，包括 Pod 故障、网络故障、文件系统故障、以及 I/O 故障等。 | 提供了丰富的混沌实验库，包括对 Pod、网络、磁盘、CPU、内存等资源的故障注入。 |
+| **易用性** | 提供了可视化的 Web UI，使得用户可以更方便地创建和管理混沌实验。 | 使用了声明性的 YAML 文件来定义混沌实验，这使得混沌实验的创建和管理变得非常简单。 |
+| **调度功能** | 支持复杂的调度规则，例如按照固定的间隔、特定的时间点（如每天的 3:00 AM）、或者固定的次数来运行混沌实验。 | 调度功能相对较弱，主要依赖于 Kubernetes 的 CronJob。 |
+| **可观察性和分析** | 提供了深度集成的观察性和分析功能，包括实时的 Chaos Dashboard、事件记录，以及与 Prometheus 和 Grafana 的集成。 | 提供了深度集成的观察性和分析功能，包括实时的 Chaos Dashboard、事件记录，以及与 Prometheus 和 Grafana 的集成。 |
+| **多租户支持** | 不支持多租户。 | 支持多租户，这意味着你可以在同一个 Kubernetes 集群中为不同的用户或团队运行不同的混沌实验。 |
+
+请注意，以上只是一部分特性的对比，实际使用时可能还需要考虑其他因素，例如社区活跃度、文档完整度、以及你的具体需求等。
