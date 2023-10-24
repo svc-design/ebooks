@@ -18,7 +18,7 @@
 - [Chapter 2.3: 存储资源](chapters/chapter2.3.md)
 - [Chapter 2.4: 服务资源](chapters/chapter2.4.md)
 
-- [Chapter 3: 监控管理](chapters/chapter3.md)
+- [Chapter 3: 运维管理](chapters/chapter3.md)
 - [Chapter 3.1: 指标系统](chapters/chapter3.1.md)
 - [Chapter 3.2: 日志系统](chapters/chapter3.2.md)
 - [Chapter 3.3: 应用管理](chapters/chapter3.3.md)
