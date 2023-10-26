@@ -536,3 +536,257 @@ class Person {
 
 // 模块（JavaScript使用模块进行代码组织，例如使用ES6模块）
 
+# 标准库 
+
+* 标准库（Standard Library）与编程语言自身密切相关，它是编程语言的一部分，通常由编程语言的开发者或维护者编写和维护。标准库是编程语言的核心组成部分之一，具有以下关系：
+
+内置功能扩展：标准库扩展了编程语言的功能，提供了各种常见的操作、数据结构和工具，使开发人员能够轻松地完成各种任务。这些功能包括文件操作、数据结构（如数组和字典）、网络通信、文本处理、加密、并发编程等。
+
+* 标准化接口：标准库定义了编程语言的标准化接口，以便开发者可以使用一致的方法和函数来执行各种任务。这有助于确保代码的可移植性，因为在不同的编程环境中，开发者可以依赖相同的标准库接口来执行相似的任务。
+
+* 语言一致性：标准库通常与编程语言的语法和语义一致，这意味着标准库的函数和方法在语言内的使用方式符合语言的规则和约定。这增加了代码的可读性和一致性。
+
+* 降低学习曲线：标准库提供了一套广泛的工具和函数，可以帮助新手开发者更轻松地入门编程语言。这有助于降低学习曲线，使新开发者能够快速上手并开始编写实用的程序。
+
+总之，标准库是编程语言的一部分，它与编程语言自身紧密相关，提供了丰富的功能和工具，使开发者能够更轻松地进行编程任务。标准库的设计和功能通常受到编程语言的设计原则和哲学的影响，以确保一致性和实用性。不过，需要注意的是，标准库可能因编程语言版本和实现而有所不同，因此在具体的编程环境中可能会有细微的差异。
+
+C、Go、Rust、Python和Node.js/JavaScript的各自标准库的简要列举：
+
+## C语言：
+
+C语言的标准库主要包括标准输入输出库（stdio.h）、标准库函数（stdlib.h）、文件操作库（stdio.h）、字符串处理库（string.h）、数学库（math.h）等。C的标准库相对较小，许多功能需要使用外部库来实现。
+
+## Go语言：
+Go语言标准库非常丰富，包括用于并发编程的Goroutines和Channels，网络编程的HTTP、TCP和UDP支持，文本处理、JSON、加密、数据库、图形用户界面（GUI）等。标准库是Go语言的强大特性之一。
+
+## Rust语言：
+Rust的标准库提供了许多常见的数据结构、文件操作、并发编程支持、网络编程、解析和格式化、数据序列化等功能。Rust的标准库也具有内存安全性的特点，可以在编译时检测和防止许多常见的编程错误。
+
+## Python语言：
+Python标准库包括大量模块，用于文件操作、文本处理、正则表达式、网络编程、数据库访问、数据结构、GUI编程等。此外，Python社区还有许多第三方库，如NumPy、Pandas、Django等，扩展了Python的功能。
+
+## Node.js/JavaScript：
+Node.js是JavaScript运行时环境，提供了许多内置模块，包括文件系统（fs）、HTTP、加密、流处理、事件处理等。在浏览器中，JavaScript具有Web API，用于与DOM互动、执行异步操作等。此外，Node.js和JavaScript社区也提供了大量第三方库，用于前端开发、后端开发、数据可视化等。
+
+
+# 标准库示例代码
+
+以下是C语言、Go语言、Rust、Python和Node.js/JavaScript标准库的一些示例代码，演示了如何使用它们的一些常见功能。请注意，这些示例代码只是简单的演示，实际应用中可能需要更多的代码和逻辑。
+
+## C语言标准库示例
+
+（使用C标准库的stdio.h和stdlib.h）：
+
+```
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    // 使用stdio.h标准库输出文本
+    printf("Hello, World!\n");
+
+    // 使用stdlib.h标准库分配和释放内存
+    int *array = (int *)malloc(5 * sizeof(int));
+    if (array != NULL) {
+        for (int i = 0; i < 5; i++) {
+            array[i] = i;
+        }
+        free(array);
+    }
+
+    return 0;
+}
+```
+
+## Go标准库示例
+
+（使用Go标准库的fmt、net/http和time等模块）：
+
+```
+package main
+
+import (
+    "fmt"
+    "net/http"
+    "time"
+)
+
+func main() {
+    // 使用fmt模块打印文本
+    fmt.Println("Hello, World!")
+
+    // 使用net/http模块创建一个简单的HTTP服务器
+    http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
+        fmt.Fprintln(w, "Hello, HTTP!")
+    })
+    go http.ListenAndServe(":8080", nil)
+
+    // 使用time模块获取当前时间
+    now := time.Now()
+    fmt.Println("Current time:", now)
+}
+```
+
+## Rust标准库示例
+
+（使用Rust标准库的std模块）：
+
+```
+fn main() {
+    // 使用println!宏打印文本
+    println!("Hello, World!");
+
+    // 使用Vec创建动态数组
+    let mut vec = Vec::new();
+    for i in 0..5 {
+        vec.push(i);
+    }
+    println!("Vector: {:?}", vec);
+
+    // 使用std::time获取当前时间
+    let now = std::time::SystemTime::now();
+    println!("Current time: {:?}", now);
+}
+```
+
+## Python标准库示例
+
+（使用Python标准库的datetime、os和math等模块）：
+
+```
+import datetime
+import os
+import math
+
+# 使用print函数打印文本
+print("Hello, World!")
+
+# 使用os模块执行系统命令
+os.system("echo Hello, OS!")
+
+# 使用math模块进行数学计算
+square_root = math.sqrt(25)
+print("Square root of 25:", square_root)
+
+# 使用datetime模块获取当前日期和时间
+current_time = datetime.datetime.now()
+print("Current time:", current_time)
+```
+
+## Node.js/JavaScript标准库示例
+
+（使用Node.js标准库的fs、http和events等模块）：
+
+```
+const fs = require('fs');
+const http = require('http');
+const events = require('events');
+
+// 使用console.log函数打印文本
+console.log("Hello, World!");
+
+// 使用fs模块读取文件
+fs.readFile('example.txt', 'utf8', (err, data) => {
+    if (!err) {
+        console.log("File contents:", data);
+    }
+});
+
+// 使用http模块创建一个简单的HTTP服务器
+const server = http.createServer((req, res) => {
+    res.writeHead(200, {'Content-Type': 'text/plain'});
+    res.end('Hello, HTTP!\n');
+});
+server.listen(8080);
+
+// 使用events模块创建事件发射器
+const eventEmitter = new events.EventEmitter();
+eventEmitter.on('customEvent', (message) => {
+    console.log(`Custom event: ${message}`);
+});
+eventEmitter.emit('customEvent', 'This is a custom event.');
+```
+
+## JavaScript浏览器端的标准API示例：
+
+1. 操作DOM（文档对象模型）：
+
+```javascript
+Copy code
+// 获取页面元素
+const element = document.getElementById('myElement');
+
+// 修改元素内容
+element.innerHTML = 'Hello, DOM!';
+
+// 添加事件监听器
+element.addEventListener('click', () => {
+  alert('Element clicked!');
+});
+```
+
+2. AJAX请求（使用XMLHttpRequest）：
+
+```javascript
+Copy code
+// 创建XMLHttpRequest对象
+const xhr = new XMLHttpRequest();
+
+// 配置请求
+xhr.open('GET', 'https://api.example.com/data', true);
+
+// 设置回调函数
+xhr.onload = function() {
+  if (xhr.status === 200) {
+    const responseData = xhr.responseText;
+    console.log('Response:', responseData);
+  } else {
+    console.error('Request failed:', xhr.status);
+  }
+};
+
+// 发送请求
+xhr.send();
+
+
+3. 定时操作：
+
+```javascript
+Copy code
+// 定时执行函数
+setTimeout(() => {
+  console.log('Delayed message');
+}, 2000);
+
+// 周期性执行函数
+setInterval(() => {
+  console.log('Repeated message');
+}, 1000);
+```
+4. Web存储（localStorage）：
+
+```javascript
+Copy code
+// 存储数据
+localStorage.setItem('username', 'JohnDoe');
+
+// 获取存储数据
+const username = localStorage.getItem('username');
+console.log('Username:', username);
+
+// 删除存储数据
+localStorage.removeItem('username');
+```
+
+5. 使用Fetch API进行网络请求：
+
+```javascript
+Copy code
+// 发送GET请求
+fetch('https://api.example.com/data')
+  .then(response => response.json())
+  .then(data => console.log('Fetched data:', data))
+  .catch(error => console.error('Fetch error:', error));
+```
+
+这些示例演示了JavaScript浏览器端的标准API的使用方式，包括DOM操作、AJAX请求、定时操作、Web存储和使用Fetch API进行网络请求。这些API允许开发者与浏览器交互，创建动态和交互式的Web应用程序。请注意，这些示例仅用于演示目的，实际应用中可能需要更多的逻辑和错误处理
