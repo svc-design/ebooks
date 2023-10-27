@@ -41,6 +41,3 @@
 - [Chapter 5.2:性能测试](chapters/chapter5.2.md)
 - [Chapter 5.3:可用性测试](chapters/chapter5.3.md)
 - [Chapter 5.4:应用安全测试](chapters/chapter5.4.md)
-
-- [Chapter 6:开发环境](chapters/chapter6.md)
-- [Chapter 6:开发语言](chapters/chapter6.1.md)
