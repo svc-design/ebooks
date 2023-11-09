@@ -38,7 +38,7 @@
 | 工程化问题 | 软件开发过程中遇到的技术问题 | 满足功能需求和非功能需求的手段 | 20% |
 
 
-# 现代化的软件工程
+## 开发流程
 
 在传统的瀑布模型中，功能需求、非功能需求和工程化问题是分阶段进行的。在需求分析阶段，首先要定义功能需求，然后再定义非功能需求，最后才是工程化问题。在开发阶段，先是设计软件，然后是实现软件，最后是部署软件。这种开发模式的缺点是，在需求分析阶段，很难准确预测软件的非功能需求和工程化问题，这可能会导致软件在开发完成后无法满足用户需求或业务要求。
 
@@ -120,9 +120,10 @@ DevOps 是一种软件开发和运维的协同方法论，它将软件开发和�
 **特别说明**: 
 
 根据 Statcounter 的数据，2023年7月，Linux 服务器操作系统市场占有率为 76.4%，Windows 服务器操作系统市场占有率为 22.3%，除了部分传统企业中还存在一些Windows 服务器操作系统，考虑以下常见问题：
+
 - 开发环境系统与实际线上服务器系统相同的操作系统一致
 - 避免开发环境编码和实际线上系统编码不一致引发的问题
--  以及Windows 作为一个商业操作系统，在开发环境方面存在以下缺点：系统封闭，安全性较低；命令行工具功能有限，不易管理。虚拟化/容器化运行环境支持有限等问题。因此，不推荐使用 Windows 作为开发环境。如果需要在 Windows 下作为开发调试环境，可以使用 WSL（Windows Subsystem for Linux）来替代，如果条件具备，更推荐使用Linux/MacOS作为开发环境。在 C、Rust、Go、Python、JavaScript (前端Vue3/后端Nodejs) 开发环境设置步骤均以 Linux（Ubuntu/Fedora）和 MacOS 系统为开发环境为参考。
+- 以及Windows 作为一个商业操作系统，在开发环境方面存在以下缺点：系统封闭，安全性较低；命令行工具功能有限，不易管理。虚拟化/容器化运行环境支持有限等问题。因此，不推荐使用 Windows 作为开发环境。如果需要在 Windows 下作为开发调试环境，可以使用 WSL（Windows Subsystem for Linux）来替代，如果条件具备，更推荐使用Linux/MacOS作为开发环境。在 C、Rust、Go、Python、JavaScript (前端Vue3/后端Nodejs) 开发环境设置步骤均以 Linux（Ubuntu/Fedora）和 MacOS 系统为开发环境为参考。
 
 ## C 语言
 
@@ -134,10 +135,10 @@ C 语言在 Linux（Ubuntu/Fedora）和 MacOS 下的开发环境设置步骤：
 在终端中，更新系统软件包列表：sudo dnf update && sudo dnf install gcc
 - MacOS 安装GCC编译器：
 安装 Homebrew: 
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+    /bin/bash -c "$(curl -fsSL [https://raw.githubusercontent.com/Homebrew/install/master/install.sh](https://raw.githubusercontent.com/Homebrew/install/master/install.sh))"
 在终端中，更新系统软件包列表：brew update && brew install gcc
 - 验证GCC编辑器：
-  * 创建一个 C 语言程序源码：hello.c
+    - 创建一个 C 语言程序源码：hello.c
 
 ```C
 #include <stdio.h>
@@ -146,59 +147,59 @@ int main() {
   return 0;
 }
 ```
-  - 编译 C 程序：gcc hello.c -o hello
-  - 运行 C 程序：./hello 
-  - 输出：Hello, world!
+
+- 编译 C 程序：gcc hello.c -o hello
+- 运行 C 程序：./hello 
+- 输出：Hello, world!
 
 额外的开发环境参考：
+
 - 编译工具, C语言的编译工具有很多，开源的主要如下：
     - GCC：GNU Compiler Collection，是C语言、C++语言、Objective-C语言、Fortran语言、Ada语言、Go语言、Rust语言、D语言、Pascal语言等多种语言的编译器集合。
     - Clang：LLVM 项目的编译器，支持 C、C++、Objective-C、Objective-C++、Swift 等语言。
 - 测试工具
     - Unittest：C++ 的单元测试框架，也可以用于 C 语言。
-    -  Google Test：Google 开发的单元测试框架，支持 C++ 和 C 语言。
-
+    - Google Test：Google 开发的单元测试框架，支持 C++ 和 C 语言。
 - 部署打包工具,C语言的部署打包工具有很多，常用的有：
     - Make：用于构建 Makefile 文件的工具。
     - CMake：用于构建跨平台 Makefile 文件的工具。
-    - 
+    - ​
 - 安装 IDE：在 Linux 上，可以使用 Visual Code、Atom，在 MacOS 上，可以使用 Xcode。
 - 安装调试器：在 Linux 上，可以使用 GDB。在 MacOS 上，可以使用 LLDB。
 - 安装代码质量工具：在 Linux 上，可以使用 Clang-Tidy。在 MacOS 上，可以使用 ClangFormat。
 - 在 Linux（Ubuntu/Fedora）和 MacOS 上，除了安装 GCC 编译器之外，还需要安装开发库，才能进行更多实际的开发工作, 例如：
-  - libstdc++：C++ 标准库
-  - libgcc：GCC 编译器依赖的库
-  - libpthread：线程库
-  - libm：数学库
-  - libssl：SSL/TLS 库
-  - libcrypto：加密库
+    - libstdc++：C++ 标准库
+    - libgcc：GCC 编译器依赖的库
+    - libpthread：线程库
+    - libm：数学库
+    - libssl：SSL/TLS 库
+    - libcrypto：加密库
 
 以下是各个开发库在 Ubuntu 和 Fedora 上的安装命令：
-  - Ubuntu/Linux：sudo apt-get install libstdc++ libgcc libpthread libm libssl libcrypto
-  - Fedora/Linux:  dnf install libstdc++ libgcc libpthread libm libssl libcrypto
-  - MacOS：brew install libstdc++ libgcc libpthread libm libssl libcrypto
 
+- Ubuntu/Linux：sudo apt-get install libstdc++ libgcc libpthread libm libssl libcrypto
+- Fedora/Linux:  dnf install libstdc++ libgcc libpthread libm libssl libcrypto
+- MacOS：brew install libstdc++ libgcc libpthread libm libssl libcrypto
 
 ## Vue3
 
 在 Linux（Ubuntu/Fedora）和 MacOS 下的Vue3 开发环境设置步骤：
 
 - Ubuntu/Linux 安装NodeJS，在终端中，更新系统软件包列表：
-    sudo apt update
-    sudo apt install sudo apt installl nodejs  npm -y 
-    npm install -g @vue/cli
+sudo apt update
+sudo apt install sudo apt installl nodejs  npm -y 
+npm install -g @vue/cli
 - Fedora/Linux 安装NodeJS，在终端中，更新系统软件包列表：
-    sudo dnf update
-    sudo dnf install sudo dnf installl nodejs npm -y 
-    npm install -g @vue/cli
+sudo dnf update
+sudo dnf install sudo dnf installl nodejs npm -y 
+npm install -g @vue/cli
 - MacOS 安装NodeJS：
 安装 Homebrew: 
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+    /bin/bash -c "$(curl -fsSL [https://raw.githubusercontent.com/Homebrew/install/master/install.sh](https://raw.githubusercontent.com/Homebrew/install/master/install.sh))"
 在终端中，更新系统软件包列表：
   brew update
   brew install nodejs npm
   npm install -g @vue/cli
-
 - 验证 Vue3 开发环境：
 
 ```
@@ -224,29 +225,26 @@ int main() {
 在 Linux（Ubuntu/Fedora）和 MacOS 下的Rust 开发环境设置步骤：
 
 - Ubuntu/Linux 安装NodeJS，在终端中，更新系统软件包列表：
-    安装 Rust: curl [https://sh.rustup.rs](https://sh.rustup.rs) -sSf | sh
-    验证 Rust 安装是否成功： rustc --version
+安装 Rust: curl [https://sh.rustup.rs](https://sh.rustup.rs) -sSf | sh
+验证 Rust 安装是否成功： rustc --version
 - Fedora/Linux 安装NodeJS，在终端中，更新系统软件包列表：
-    安装 EPEL 软件源。 sudo yum install epel-release
-    安装 Rust: curl [https://sh.rustup.rs](https://sh.rustup.rs) -sSf | sh
-    验证 Rust 安装是否成功: rustc --version
+安装 EPEL 软件源。 sudo yum install epel-release
+安装 Rust: curl [https://sh.rustup.rs](https://sh.rustup.rs) -sSf | sh
+验证 Rust 安装是否成功: rustc --version
 - MacOS 安装NodeJS：
-    安装 Homebrew: /bin/bash -c "$(curl -fsSL [https://raw.githubusercontent.com/Homebrew/install/master/install.sh](https://raw.githubusercontent.com/Homebrew/install/master/install.sh))"
-    使用 Homebrew 安装 Rust: brew install rust
-    验证 Rust 安装是否成功: rustc --version
-
-- 验证 Rust 开发环境：
-  1. cargo new my-project
-  2. 在 src/main.rs 文件中，添加以下代码：
-```Rust
-fn main() {
+安装 Homebrew: /bin/bash -c "$(curl -fsSL [https://raw.githubusercontent.com/Homebrew/install/master/install.sh](https://raw.githubusercontent.com/Homebrew/install/master/install.sh))"
+使用 Homebrew 安装 Rust: brew install rust
+验证 Rust 安装是否成功: rustc --version
+- 验证 Rust 开发环境：fn main() {
     println!("Hello, world!");
 }
-```
-  3. 在终端中，切换到 my-project 文件夹，并执行以下命令来编译该项目：cargo build 将生成一个名为 my-project 的可执行文件。
-  4. 运行该项目，请执行以下命令：cargo run 将运行项目的可执行文件，并打印一条消息“Hello, world!” 
+    1. cargo new my-project
+    2. 在 src/main.rs 文件中，添加以下代码：
+- 在终端中，切换到 my-project 文件夹，并执行以下命令来编译该项目：cargo build 将生成一个名为 my-project 的可执行文件。
+- 运行该项目，请执行以下命令：cargo run 将运行项目的可执行文件，并打印一条消息“Hello, world!” 
 
 额外的开发辅助工具参考：
+
 - Rust-test：Rust 单元测试框架。
 - Criterion：Rust 性能测试框架。
 - Bencher：Rust 基准测试工具。
@@ -263,38 +261,28 @@ fn main() {
 在 Linux（Ubuntu/Fedora）和 MacOS 下的 Go 开发环境设置步骤如下：
 
 - Ubuntu/Linux 安装 Go
-    更新系统软件包列表：sudo apt update
-    安装 Go：sudo apt install golang
-    配置环境变量：
-```
-echo "export GOROOT=/usr/lib/go" >> ~/.bashrc
+更新系统软件包列表：sudo apt update
+安装 Go：sudo apt install golang
+配置环境变量：echo "export GOROOT=/usr/lib/go" >> ~/.bashrc
 echo "export GOPATH=$HOME/go" >> ~/.bashrc
-echo "export PATH=$GOROOT/bin:$PATH" >> ~/.bashrc
-```
-    加载环境变量：source ~/.bashrc
-    验证 Go 版本：go version
-
+echo "export PATH=$GOROOT/bin:$PATH" >> ~/.bashrc加载环境变量：source ~/.bashrc
+验证 Go 版本：go version
 - Fedora/Linux 安装 Go
-    更新系统软件包列表：sudo dnf update
-    安装 Go： sudo dnf install go
-    配置环境变量：
-````
-echo "export GOROOT=/usr/lib/go" >> ~/.bashrc
+更新系统软件包列表：sudo dnf update
+安装 Go： sudo dnf install go
+配置环境变量：echo "export GOROOT=/usr/lib/go" >> ~/.bashrc
 echo "export GOPATH=$HOME/go" >> ~/.bashrc
 echo "export PATH=$GOROOT/bin:$PATH" >> ~/.bashrc
-```
-  加载环境变量：source ~/.bashrc
-  验证 Go 版本： go version
-
+加载环境变量：source ~/.bashrc
+验证 Go 版本： go version
 - MacOS 安装 Go
-    安装 Homebrew：/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    使用 Homebrew 安装 Go：brew install go
-    验证 Go 版本： go version
-
+安装 Homebrew：/usr/bin/ruby -e "$(curl -fsSL [https://raw.githubusercontent.com/Homebrew/install/master/install](https://raw.githubusercontent.com/Homebrew/install/master/install))"
+使用 Homebrew 安装 Go：brew install go
+验证 Go 版本： go version
 - 验证 Go 开发环境
 main.go 文件是 Go 程序的入口点，创建 main.go：
 
-```Go
+```
 package main
 
 import "fmt"
@@ -303,16 +291,22 @@ func main() {
     fmt.Println("Hello, world!")
 }
 ```
+
 使用 go build 和 go run 命令分别编译和运行 Go 程序：
+
 编译 Go 程序: go build -o helloworld
-运行 Go 程序: ./helloworld 终端会返回 Hello, world!
+
+运行 Go 程序: ./helloworld 
+
+终端会返回 Hello, world!
 
 - 额外的开发辅助工具参考
-  - GoLand：一个由 JetBrains 开发的基于 IntelliJ IDEA 的 IDE，专为 Go 语言开发而设计。
-  - Visual Code：一个由 Microsoft 开发的开源 IDE，支持多种编程语言，包括 Go。
-  - GoEdit：一个由 Andrew Gerrand 开发的基于 Vim 的 IDE，专为 Go 语言开发而设计。
+    - GoLand：一个由 JetBrains 开发的基于 IntelliJ IDEA 的 IDE，专为 Go 语言开发而设计。
+    - Visual Code：一个由 Microsoft 开发的开源 IDE，支持多种编程语言，包括 Go。
+    - GoEdit：一个由 Andrew Gerrand 开发的基于 Vim 的 IDE，专为 Go 语言开发而设计。
 
-** 注意事项 **
+ **注意事项** 
+
 - 在 Ubuntu 和 Fedora 中，Go 的安装包默认安装在 /usr/lib/go 目录中。
 - 在 MacOS 中，Go 的安装包默认安装在 /usr/local/opt/go 目录中。
 - 可以使用 go env 命令查看 Go 的环境变量。
@@ -322,18 +316,18 @@ func main() {
 在 Linux（Ubuntu/Fedora）和 MacOS 下的 Python 开发环境设置步骤
 
 - Ubuntu/Linux 安装 Python
-    在终端中，更新系统软件包列表：sudo apt update
-    安装 Python：sudo apt install python3
+在终端中，更新系统软件包列表：sudo apt update
+安装 Python：sudo apt install python3
 - Fedora/Linux 安装 Python
-    在终端中，更新系统软件包列表：sudo dnf update 
-    安装 Python：sudo dnf install python3
+在终端中，更新系统软件包列表：sudo dnf update 
+安装 Python：sudo dnf install python3
 - MacOS 安装 Python
-    在终端中，安装 Homebrew：/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-    使用 Homebrew 安装 Python：brew install python
-
+在终端中，安装 Homebrew：/bin/bash -c "$(curl -fsSL [https://raw.githubusercontent.com/Homebrew/install/master/install.sh](https://raw.githubusercontent.com/Homebrew/install/master/install.sh))"
+使用 Homebrew 安装 Python：brew install python
 - 验证 Python 开发环境
 
 在终端中，创建一个简单的 Python 脚本：保存为 main.py
+
 ```
 def greet(name):
     print(f"Hello, {name}!")
@@ -343,21 +337,23 @@ if __name__ == "__main__":
 ```
 
 在终端中，运行脚本： python main.py
+
 如果脚本成功运行，将会输出以下内容：Hello, Bard!
 
 - 额外的开发辅助工具参考
-  - IDE： PyCharm、Visual Studio Code、IDLE
-  - 代码库管理： Git、GitHub
-  - 测试工具： unittest、pytest
-  - 文档生成工具： Sphinx
-  - 部署工具： Docker、WSGI
-
+    - IDE： PyCharm、Visual Studio Code、IDLE
+    - 代码库管理： Git、GitHub
+    - 测试工具： unittest、pytest
+    - 文档生成工具： Sphinx
+    - 部署工具： Docker、WSGI
 - 额外说明
     - Python 版本： 建议使用最新的 Python 3.x 版本。
     - 默认解释器： 在 Ubuntu 和 Fedora 中，Python 3 默认是默认解释器。如果您的系统安装了多个 Python 版本，可以使用以下命令设置默认解释器：sudo update-alternatives --install /usr/bin/python python /usr/bin/python3 1
     - 开发环境配置： 可以根据自己的需要配置 Python 开发环境，例如安装第三方库、配置 IDE 等
 
-# DevOPS 实践参考
+# DevOPS 实践
+
+## 概述
 
 推荐使用 git 作为代码仓库版本控制的理由如下：
 
@@ -383,1036 +379,552 @@ GitHub Actions 是 GitHub 提供的持续集成/持续交付 (CI/CD) 服务，�
 - 协作工具：Slack、Zoom 等。
 
  **额外说明**
+
 如果是大陆区域使用Github因为GFW策略等原因，访问速度会比较慢，建议使用Xtls等开源项目加速器改善
 
-## C 语言项目
+## 环境信息
+
+| 名称 | 服务 | 描述  |
+|:----|:----|:----|
+| **代码仓库** | github.com | 存储代码、管理版本、协作开发 |
+| **CI** | github action | 持续集成、构建、测试 |
+| **CD** | github action | 持续交付/持续部署 |
+| **部署环境** | k3s/单机部署 | 用于部署和运行应用程序 |
+
+
+## GitHub Actions CICD
+
+在代码仓库中，添加 GitHub Actions 工作流的 YAML 文件 .github/workflows/pipeline.yaml  就可以以触发运行 CICD Pipeline：
+
+![请在此添加图片描述](https://developer.qcloudimg.com/http-save/yehe-admin/a6ee8692441b0506a2a6527647dbab55.png)
+
+详细介绍下这个CICD Pipeline 构建测试和部署流程中的 jobs:
+
+- build：构建
+
+该 job 负责构建应用程序的二进制文件。它首先克隆代码库，然后安装构建所需的依赖项。最后，它使用 make 命令构建二进制文件。
+
+- test：测试
+
+该 job 负责运行应用程序的测试用例。它首先克隆代码库，然后安装测试所需的依赖项。最后，它使用 make test 命令运行测试用例。
+
+- Build Image：构建 Docker 镜像
+
+该 job 负责构建并推送应用程序的 Docker 镜像。它首先克隆代码库，然后使用 Kaniko 工具构建 Docker 镜像。最后，它使用 docker push 命令推送 Docker 镜像到 Artifact Registry。
+
+- setup-k3s：设置 K3s 集群
+
+该 job 负责设置 K3s 集群。它首先克隆代码库，然后安装 Ansible 工具。最后，它使用 Ansible  playbook 创建 K3s 集群。
+
+- deploy-app: 部署应用程序
+
+该 job 负责部署应用程序到 K3s 集群。它首先克隆代码库，然后使用 Ansible  playbook 部署应用程序。
+
+# C 语言项目
+
+## 项目代码仓库
 
 - C语言项目开发的标准参考目录结构如下：
 
 ```
 ├── bin
-│   ├── main
-│   │   └── main
-│   └── test
-│       └── test
 ├── doc
-│   ├── design
-│   │   └── design.md
+│   ├── design.md
 │   ├── README.md
-│   └── requirements.txt
 ├── include
 │   └── header.h
 ├── lib
-│   └── lib.a
-├── src
-│   ├── main.c
-│   └── test.c
+│   └──Makefile 
+├── main.c
+├── test.c
 ├── Makefile
 └── Dockerfile
 ```
 
 说明：
 
-- bin 目录用于存放可执行文件。
+- bin  目录用于存放可执行文件。
 - doc 目录用于存放文档，包括设计文档、README 文件、需求文档等。
 - include 目录用于存放头文件。
 - lib 目录用于存放库文件。
-- src 目录用于存放源文件。
+- lib/Makefile 用于编译 lib 目录。
+- main.c 目录用于存放源文件。
 - Makefile 用于编译、测试和部署项目。
 - Dockerfile 用于构建容器镜像
 
-- 基于 github/workflows 的自动化
+相关C 的小程序代码仓库参考，[https://github.com/svc-design/Scaffolding-C](https://github.com/svc-design/Scaffolding-C)，这是一个可以实现查看Linux系统信息的C程序，包含头文件定义，函数库，以及单元测试代码等，软件开发必备的部分。 
 
-使用github/workflows 提供一个支持本地系统构建和基于Dockerfile 多阶段构建的代码示例？
+## Dockerfile
 
-以下是一个支持本地系统构建和基于 Dockerfile 多阶段构建的 C 语言项目的 Github Actions 示例：
-
-YAML
-
-name: C 语言项目构建
-
-on:
-
-  push:
+以下是多阶段构建的示例：
 
 ```
-branches:
-```
-
-```
-  - main
-```
-
-jobs:
-
-  build:
-
-```
-runs-on: ubuntu-latest
-```
-
-```
-steps:
-```
-
-```
-  - uses: actions/checkout@v2
-```
-
-```
-  - name: 安装依赖
-    run: |
-      sudo apt update
-      sudo apt install gcc -y
-```
-
-```
-  - name: 编译
-    run: |
-      gcc -o main main.c
-```
-
-  docker:
-
-```
-runs-on: ubuntu-latest
-```
-
-```
-steps:
-```
-
-```
-  - uses: actions/checkout@v2
-```
-
-```
-  - name: 构建 Dockerfile
-    run: |
-      docker build -t c-project .
-```
-
-```
-  - name: 运行测试
-    run: |
-      docker run c-project
-```
-
-请谨慎使用代码。了解详情
-
-该示例包含两个 jobs：
-
-build job 用于本地系统上的编译。
-
-docker job 用于基于 Dockerfile 的多阶段构建。
-
-build job 首先使用 actions/checkout@v2 动作克隆项目代码。然后，使用 sudo apt install gcc -y 命令安装 GCC 编译器。最后，使用 gcc -o main main.c 命令编译项目。
-
-docker job 首先使用 actions/checkout@v2 动作克隆项目代码。然后，使用 docker build -t c-project . 命令构建 Dockerfile。最后，使用 docker run c-project 命令运行测试。
-
-该示例可以根据需要进行修改。例如，可以添加更多的测试用例或修改 Dockerfile 来构建不同的镜像。
-
-以下是一些可以修改的示例：
-
-```
-添加更多的测试用例
-YAML
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: 安装依赖
-        run: |
-          sudo apt update
-          sudo apt install gcc -y
-
-      - name: 编译
-        run: |
-          gcc -o main main.c
-
-      - name: 运行测试
-        run: |
-          gcc -o test test.c
-          ./test
-请谨慎使用代码。了解详情
-修改 Dockerfile 来构建不同的镜像
-YAML
-jobs:
-  docker:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: 构建 Dockerfile
-        run: |
-          docker build -t c-project:latest .
-
-      - name: 构建 Dockerfile 并推送到 Docker Hub
-        run: |
-          docker build -t your-username/c-project:latest .
-          docker push your-username/c-project:latest
-请谨慎使用代码。了解详情
-希望以上内容对您有所帮助。
-```
-
-以下是一个 C Dockerfile 的多阶段构建的示例：
-
-```
-代码段
 # 基础镜像
 FROM debian:latest as builder
 
-# 安装依赖
-RUN apt update && apt install -y gcc
+# 安装编译依赖
+RUN apt-get update && apt-get install -y gcc libc6-dev make
 
-# 编译
+# 编译程序
+COPY . /app
 WORKDIR /app
-COPY main.c .
-RUN gcc -o main main.c
+RUN make
 
-# 运行环境
-FROM scratch
+# 生成可执行文件
+RUN mv sysinfo /usr/bin/sysinfo
 
-# 复制可执行文件
-COPY --from=builder /app/main .
+# 运行镜像
+FROM debian:latest
 
-# 启动
-CMD ["./main"]
+# 添加可执行文件
+COPY --from=builder /usr/bin/sysinfo /usr/bin/sysinfo
+
+# 运行程序
+CMD ["/bin/sh"]
 ```
 
-请谨慎使用代码。了解详情
+在这个示例中，我们使用了两个基础镜像：debian:latest 和 debian:latest。第一个基础镜像用于编译程序，第二个基础镜像用于运行程序。
 
-该示例包含两个阶段：
+在第一个阶段中，我们使用 debian:latest 基础镜像来安装编译依赖项。然后，我们将程序的源代码复制到容器内，并将工作目录切换到 /app。最后，我们使用 make 命令来编译程序。
 
-builder 阶段用于编译 C 程序。
+在第二阶段中，我们使用 debian:latest 基础镜像来添加可执行文件。然后，我们指定 /bin/sh 作为运行程序的命令。
 
-运行环境 阶段用于运行 C 程序。
+## Pipeline
 
-builder 阶段首先使用 debian:latest 镜像作为基础镜像。然后，使用 apt update && apt install -y gcc 命令安装 GCC 编译器。最后，使用 gcc -o main main.c 命令编译 C 程序。
+在 Scaffolding-C.git 仓库中，添加了 GitHub Actions 工作流的 YAML 文件 .github/workflows/pipeline.yaml 
 
-运行环境 阶段使用 scratch 镜像作为基础镜像。然后，使用 COPY --from=builder /app/main . 命令复制可执行文件到运行环境中。最后，使用 CMD "./main" 命令启动 C 程序。
+GitHub Actions 的管理界面 [https://github.com/svc-design/Scaffolding-C/actions](https://github.com/svc-design/Scaffolding-C/actions) ，手动触发 Run workflows 
 
-该示例可以根据需要进行修改。例如，可以添加更多的依赖或修改编译命令。
+如需在自己的账号运行这个Demo，只需要将[https://github.com/svc-design/Scaffolding-C.git](https://github.com/svc-design/Scaffolding-C.git)  这个仓库Fork 到你自己的Github账号下，同时在
 
-以下是一些可以修改的示例：
+Settings -> Actions secrets and variables: 添加流水线需要定义的变量:
 
-```
-添加更多的依赖
-代码段
-# 基础镜像
-FROM debian:latest as builder
+- HELM\_REPO\_USER             Artifact 仓库认证用户名
+- HELM\_REPO\_REGISTRY      Artifact 仓库认证地址  
+- HELM\_REPO\_PASSWORD    Artifact 仓库认证密码
+- HOST\_USER                       部署K3S的主机OS登陆用户名         
+- HOST\_IP                            部署K3S的主机IP地址
+- HOST\_DOMAIN                   部署K3S的主机域名
+- SSH\_PRIVATE\_KEY             访问K3S的主机的SSH 私钥
 
-# 安装依赖
-RUN apt update && apt install -y gcc
-RUN apt install -y libfoo-dev
-
-# 编译
-WORKDIR /app
-COPY main.c .
-RUN gcc -o main main.c -lfoo
-请谨慎使用代码。了解详情
-修改编译命令
-代码段
-# 基础镜像
-FROM debian:latest as builder
-
-# 安装依赖
-RUN apt update && apt install -y gcc
-
-# 编译
-WORKDIR /app
-COPY main.c .
-RUN gcc -o main main.c -O3
-```
+一起就绪后，就可以看到 DevOPS 实践/GitHub Actions CICD 一节所示，在这个工作流中，自动的完成C程序的编译，测试，打包容器镜像并推送到自定义的仓库，并完成K3S集群的初始化，将容器镜像部署到K3S集群中。
 
 # Python 语言项目
 
 Python 语言项目开发的标准参考目录结构
 
-Python 语言项目开发的标准参考目录结构如下：
+## 项目目录参考
 
-├── bin
-
-│   └── my\_app
-
-├── conf
-
-│   └── config.ini
-
-├── data
-
-│   └── data.csv
-
-├── docs
-
-│   └── README.md
-
-│   └── requirements.txt
-
-├── lib
-
-│   └── my\_module.py
-
-├── main.py
-
-├── tests
-
-│   └── test\_my\_module.py
-
-└── venv
-
-说明：
-
-bin 目录用于存放可执行文件。
-
-conf 目录用于存放配置文件。
-
-data 目录用于存放数据文件。
-
-docs 目录用于存放文档，包括 README 文件、requirements.txt 文件等。
-
-lib 目录用于存放 Python 模块。
-
-main.py 是 Python 项目的主程序。
-
-tests 目录用于存放测试用例。
-
-venv 目录用于存放 Python 虚拟环境。
-
-编译
-
-Python 语言不需要编译，可以直接运行。
-
-测试
-
-Python 语言的测试工具有很多，常用的有：
-
-unittest：Python 的标准测试框架。
-
-pytest：一个功能强大的测试框架。
-
-nose2：一个灵活的测试框架。
-
-部署打包工具
-
-Python 语言的部署打包工具有很多，常用的有：
-
-PyInstaller：用于将 Python 程序打包成独立的可执行文件。
-
-Docker：用于将 Python 程序打包成 Docker 镜像。
-
-Pipenv：用于管理 Python 项目的依赖项。
-
-Github Actions 示例
-
-以下是一个支持本地 Python 程序打包和基于 Dockerfile 多阶段构建的 Github Actions 示例：
-
-```YAML
-name: Python 项目构建
-
-on:
-  push:
-    branches:
-      - main
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: 安装依赖
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
-
-      - name: 打包
-        run: |
-          python -m build
-
-      - name: 测试
-        run: |
-          python -m pytest tests
-
-  docker:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: 构建 Dockerfile
-        run: |
-          docker build -t python-project .
-
-      - name: 运行测试
-        run: |
-          docker run python-project
-```
-
-请谨慎使用代码。了解详情
-
-该示例包含两个 jobs：
-
-build job 用于本地 Python 程序打包。
-
-docker job 用于基于 Dockerfile 的多阶段构建。
-
-build job 首先使用 actions/checkout@v2 动作克隆项目代码。然后，使用 python -m pip install --upgrade pip 命令升级 pip 包管理器。最后，使用 pip install -r requirements.txt 命令安装项目依赖。
-
-build job 然后使用 python -m build 命令打包 Python 程序。
-
-build job 最后使用 python -m pytest tests 命令运行测试。
-
-docker job 首先使用 actions/checkout@v2 动作克隆项目代码。然后，使用 docker build -t python-project . 命令构建 Dockerfile。最后，使用 docker run python-project 命令运行测试。
-
-该示例可以根据需要进行修改。例如，可以添加更多的测试用例或修改 Dockerfile 来构建不同的镜像。
-
-以下是一些可以修改的示例：
-
-添加更多的测试用例
+- Python 语言项目开发的标准参考目录结构如下：
 
 ```
-YAML
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
+myproject/
+├── src/
+│   └── example_pkg/
+│       ├── __init__.py
+│       └── core.py
+├── tests/
+│   └── example_pkg/
+│       └── test_core.py
+├── setup.py
+├── Dockerfile
+└── readme.md
 ```
 
- Python Dockerfile 的多阶段构建的示例：
+其中：
+
+- src 目录是项目的源码目录，存放项目的所有 Python 源代码文件，包括模块、类、函数等。
+- example\_pkg 是项目的包目录，存放项目的所有包。
+- **init**.py 文件是 Python 包的入口文件，用于定义包的名称和导入路径。
+- core.py 是项目的核心模块，存放项目的主要逻辑。
+- tests 目录是项目的测试目录，存放项目的所有测试用例。
+- test\_core.py 是项目的核心模块的测试用例。
+- setup.py 文件是项目的打包文件，用于打包项目为 Python 包。
+- readme.md 文件是项目的说明文件，用于描述项目的功能、用法等。
+
+这种目录结构具有以下优点：
+
+- 将项目的源码和测试代码分离，便于开发和维护。
+- 将项目的包结构清晰地划分，便于导入和管理。
+- 使用 setup.py 文件打包项目，便于发布和部署。
+
+具体的目录结构可以根据项目的实际情况进行调整。例如，对于简单的项目，可以将 src 和 tests 目录合并为一个目录。对于大型的项目，可以根据模块的功能划分多个子包。
+
+## Dockerfile
+
+以下是一个 Dockerfile 多阶段构建的示例：
 
 ```Dockerfile
-# 基础镜像
-FROM python:3.9-slim as builder
+# 第一阶段：编译阶段
+FROM python:3.10-buster AS builder
 
-# 安装依赖
-RUN pip install --upgrade pip
-RUN pip install -r requirements.txt
+# 安装编译依赖
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    build-essential \
+    python3-dev \
+    python3-pip
 
-# 编译
-WORKDIR /app
-COPY . .
-RUN python setup.py build
+# 复制源代码
+COPY . /app
 
-# 运行环境
-FROM python:3.9-slim
+# 编译项目
+RUN pip3 install -r /app/requirements.txt
+RUN python3 setup.py build
 
-# 复制可执行文件
-COPY --from=builder /app/dist/my_app /app/my_app
+# 第二阶段：运行阶段
+FROM python:3.10-slim-buster
 
-# 启动
-CMD ["python", "/app/my_app"]
+# 复制编译产物
+COPY --from=builder /app/dist/myproject-0.1.0-py3-none-any.whl /app
+
+# 安装运行依赖
+RUN pip3 install /app/myproject-0.1.0-py3-none-any.whl
+
+# 启动项目
+CMD ["python3", "/app/myproject/main.py"]
 ```
 
-请谨慎使用代码。了解详情
+这个 Dockerfile 使用了两阶段构建：
 
-该示例包含两个阶段：
+第一阶段：用于编译项目。该阶段使用了 python:3.10-buster 镜像作为基础镜像，并安装了编译依赖。然后，将项目的源代码复制到镜像中，并使用 pip3 进行编译。
 
-builder 阶段用于编译 Python 程序。
+第二阶段：用于运行项目。该阶段使用了 python:3.10-slim-buster 镜像作为基础镜像，并安装了运行依赖。然后，将第一阶段编译的产物复制到镜像中，并启动项目。
 
-运行环境 阶段用于运行 Python 程序。
+使用多阶段构建，可以将编译依赖和运行依赖分离，从而减少镜像的大小和体积。
 
-builder 阶段首先使用 python:3.9-slim 镜像作为基础镜像。然后，使用 pip install --upgrade pip 命令升级 pip 包管理器。最后，使用 pip install -r requirements.txt 命令安装项目依赖。
+## Pipeline
 
-builder 阶段然后使用 python setup.py build 命令编译 Python 程序。
+在 Scaffolding-Python.git 仓库中，添加了 GitHub Actions 工作流的 YAML 文件 .github/workflows/pipeline.yaml 
 
-运行环境 阶段使用 python:3.9-slim 镜像作为基础镜像。然后，使用 COPY --from=builder /app/dist/my\_app /app/my\_app 命令复制可执行文件到运行环境中。最后，使用 CMD "python", "/app/my\_app" 命令启动 Python 程序。
+GitHub Actions 的管理界面 [https://github.com/svc-design/Scaffolding-Python/actions](https://github.com/svc-design/Scaffolding-Python/actions) ，手动触发 Run workflows 
 
-该示例可以根据需要进行修改。例如，可以添加更多的依赖或修改编译命令。
+如需在自己的账号运行这个Demo，只需要将[https://github.com/svc-design/Scaffolding-Python.git](https://github.com/svc-design/Scaffolding-Python.git)  这个仓库Fork 到你自己的Github账号下，同时在
 
-以下是一些可以修改的示例：
+Settings -> Actions secrets and variables: 添加流水线需要定义的变量:
 
-```
-添加更多的依赖
-Dockerfile
-# 基础镜像
-FROM python:3.9-slim as builder
+- HELM\_REPO\_USER             Artifact 仓库认证用户名
+- HELM\_REPO\_REGISTRY      Artifact 仓库认证地址  
+- HELM\_REPO\_PASSWORD    Artifact 仓库认证密码
+- HOST\_USER                       部署K3S的主机OS登陆用户名         
+- HOST\_IP                            部署K3S的主机IP地址
+- HOST\_DOMAIN                   部署K3S的主机域名
+- SSH\_PRIVATE\_KEY             访问K3S的主机的SSH 私钥
 
-# 安装依赖
-RUN pip install --upgrade pip
-RUN pip install -r requirements.txt
-RUN pip install -r requirements-dev.txt
-请谨慎使用代码。了解详情
-修改编译命令
-Dockerfile
-# 基础镜像
-FROM python:3.9-slim as builder
+一起就绪后，就可以看到 DevOPS 实践/GitHub Actions CICD 一节所示，在这个工作流中，自动的完成C程序的编译，测试，打包容器镜像并推送到自定义的仓库，并完成K3S集群的初始化，将容器镜像部署到K3S集群中。
 
-# 安装依赖
-RUN pip install --upgrade pip
-RUN pip install -r requirements.txt
+# JavaScript 语言项目
 
-# 编译
-WORKDIR /app
-COPY . .
-RUN python setup.py build --wheel
-```
+## 前端/Vue3 项目
 
-# 前端/Vue3 项目
-
-Vue3 项目开发的标准参考目录结构如下：
+以下是一个 JavaScript 语言 Vue3 项目开发的标准参考目录结构：
 
 ```
-├── public
-│   └── index.html
-├── src
-│   ├── App.vue
-│   ├── components
+myproject/
+├── public/
+│   ├── index.html
+│   └── favicon.ico
+├── src/
+│   ├── components/
 │   │   └── HelloWorld.vue
+│   ├── App.vue
 │   ├── main.js
-│   └── router
-│       └── index.js
-└── package.json
+│   └── router.js
+├── .gitignore
+├── package.json
+└── README.md
 ```
 
-说明：
+其中：
 
-public 目录用于存放静态资源，例如 HTML、CSS、JavaScript 等文件。
+- public 目录是项目的静态资源目录，存放项目的 HTML、CSS、JavaScript 等静态资源文件。
+- src 目录是项目的源码目录，存放项目的所有 Vue 组件、代码文件等。
+- components 目录是项目的组件目录，存放项目的所有 Vue 组件。
+- App.vue 是项目的入口文件，定义项目的根组件。
+- main.js 是项目的主文件，用于初始化 Vue 实例。
+- router.js 是路由文件，用于定义项目的路由规则。
+- .gitignore 文件是 Git 忽略文件，用于指定 Git 不应该跟踪的文件或目录。
+- package.json 文件是项目的包文件，用于指定项目的依赖项。
+- README.md 文件是项目的说明文件，用于描述项目的功能、用法等。
 
-src 目录用于存放 Vue3 项目的源代码。
+ **前端/Vue3 项目 Dockerfile** 
 
-App.vue 是 Vue3 项目的根组件。
+以下是一个前端/Vue3 项目 Dockerfile 多阶段构建的示例
 
-components 目录用于存放 Vue3 组件。
+```Dockerfile
+# 第一阶段：编译阶段
+FROM node:18-alpine AS builder
 
-main.js 是 Vue3 项目的入口文件。
+# 复制源代码
+COPY . /app
 
-router 目录用于存放 Vue3 路由配置。
+# 安装依赖, 编译项目
+RUN apk add --no-cache --virtual .build-deps git nodejs npm \
+        npm install  && npm run build
 
-支持本地 Vue3 程序打包和基于 Dockerfile 多阶段构建的 Github Actions 示例如下：
+# 第二阶段：运行阶段
+FROM nginx:1.22-alpine
 
-```YAML
-name: Vue3 项目构建
-
-on:
-  push:
-    branches:
-      - main
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: 安装依赖
-        run: |
-          yarn install
-
-      - name: 打包
-        run: |
-          yarn build
-
-      - name: 测试
-        run: |
-          yarn test
-
-  docker:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: 构建 Dockerfile
-        run: |
-          docker build -t vue3-project .
-
-      - name: 运行测试
-        run: |
-          docker run vue3-project
-```
-
-请谨慎使用代码。了解详情
-
-该示例包含两个 jobs：
-
-build job 用于本地 Vue3 程序打包。
-
-docker job 用于基于 Dockerfile 多阶段构建。
-
-build job 首先使用 actions/checkout@v2 动作克隆项目代码。然后，使用 yarn install 命令安装项目依赖。最后，使用 yarn build 命令打包 Vue3 程序。
-
-build job 最后使用 yarn test 命令运行测试。
-
-docker job 首先使用 actions/checkout@v2 动作克隆项目代码。然后，使用 docker build -t vue3-project . 命令构建 Dockerfile。最后，使用 docker run vue3-project 命令运行测试。
-
-Vue3 Dockerfile 的多阶段构建的示例如下：
-
-Dockerfile
-
-```
-# 基础镜像
-FROM node:16-alpine as builder
-
-# 安装依赖
-WORKDIR /app
-COPY package.json package-lock.json ./
-RUN npm install
-
-# 构建
-COPY . .
-RUN npm run build
-
-# 运行环境
-FROM nginx:latest
-
-# 复制可执行文件
+# 复制编译产物
 COPY --from=builder /app/dist /usr/share/nginx/html
 
-# 启动
+# 配置 Nginx
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+# 启动 Nginx
 CMD ["nginx", "-g", "daemon off;"]
 ```
 
-请谨慎使用代码。了解详情
+这个 Dockerfile 使用了两阶段构建：
 
-该示例包含两个阶段：
+- 第一阶段：用于编译项目。该阶段使用了 node:18-alpine 镜像作为基础镜像，并安装了依赖。然后，将项目的源代码复制到镜像中，并使用 yarn 进行编译。
+- 第二阶段：用于运行项目。该阶段使用了 nginx:1.22-alpine 镜像作为基础镜像，并复制第一阶段编译的产物到镜像中。然后，配置 nginx 并启动 nginx。
 
-builder 阶段用于编译 Vue3 程序。
+## 后端 NodeJS/Express 项目
 
-运行环境 阶段用于运行 Vue3 程序。
+后端 NodeJS / Express 项目开发的标准参考目录结构如下：
 
-builder 阶段首先使用 node:16-alpine 镜像作为基础镜像。然后，使用 WORKDIR /app 命令设置工作目录。最后，使用 npm install 命令安装项目依赖。
-
-builder 阶段然后使用 COPY . . 命令复制项目代码到工作目录。最后，使用 npm run build 命令构建 Vue3 程序。
-
-运行环境 阶段使用 nginx:latest 镜像作为基础镜像。然后，使用 COPY --from=builder /app/dist /usr/share/nginx/html 命令复制可执行文件到运行环境中。最后，使用 CMD "nginx", "-g", "daemon off;" 命令启动 nginx。
-
-# 后端 NodeJS 项目
-
-后端 NodeJS / Express 项目开发的标准参考目录结构
-
-NodeJS 后端项目开发的标准参考目录结构如下：
-
-├── package.json
-
-├── package-lock.json
-
-├── README.md
-
-├── src
-
-│   ├── app.js
-
-│   ├── config
-
-│   │   ├── config.js
-
-│   │   └── database.js
-
-│   ├── models
-
-│   │   └── user.model.js
-
-│   └── routes
-
+```
+myproject/
+├── bin/
+│   └── start.sh
+├── config/
+│   └── database.json
+├── app/
+│   ├── controllers/
+│   │   └── HelloWorldController.js
+│   ├── middleware/
+│   │   └── LoggingMiddleware.js
+│   ├── models/
+│   │   └── User.js
+│   └── routes/
 │       └── index.js
-
-└── tests
-
-```
-└── unit
+├── node_modules/
+├── package.json
+└── README.md
 ```
 
-```
-    └── user.test.js
-```
+其中：
 
-说明：
+- bin 目录是项目的启动脚本目录，存放项目的启动脚本。
+- config 目录是项目的配置文件目录，存放项目的所有配置文件。
+- app 目录是项目的源码目录，存放项目的所有业务逻辑代码。
+- controllers 目录是项目的控制器目录，存放项目的所有 HTTP 控制器。
+- middleware 目录是项目的中间件目录，存放项目的所有中间件。
+- models 目录是项目的数据模型目录，存放项目的数据模型。
+- routes 目录是项目的路由目录，存放项目的所有路由。
+- node\_modules 目录是项目的依赖项目录，存放项目的所有依赖项。
+- package.json 文件是项目的包文件，用于指定项目的依赖项。
+- README.md 文件是项目的说明文件，用于描述项目的功能、用法等。
 
-package.json 和 package-lock.json 文件用于管理项目的依赖关系。
+**后端 NodeJS / Express 项目 Dockerfile 多阶段构建的示例**
 
-README.md 文件用于描述项目的相关信息。
+以下是一个使用多阶段构建构建后端 NodeJS / Express 项目的 Dockerfile 示例：
 
-src 目录用于存放项目的源代码。
-
-app.js 文件是项目的入口文件，用于启动服务器。
-
-config 目录用于存放项目的配置文件。
-
-models 目录用于存放项目的数据模型。
-
-routes 目录用于存放项目的路由配置。
-
-tests 目录用于存放项目的单元测试。
-
-具体说明如下：
-
-package.json 文件用于指定项目的依赖关系，以及项目的相关信息，例如名称、版本、作者等。
-
-package-lock.json 文件用于记录项目的依赖关系的版本号，用于确保项目的一致性。
-
-README.md 文件用于描述项目的相关信息，例如项目的目的、使用方法等。
-
-src 目录用于存放项目的源代码，包括 app.js 文件、配置文件、数据模型、路由配置等。
-
-app.js 文件是项目的入口文件，用于启动服务器。
-
-config 目录用于存放项目的配置文件，例如数据库配置、环境变量配置等。
-
-models 目录用于存放项目的数据模型，用于描述数据库中的表结构。
-
-routes 目录用于存放项目的路由配置，用于定义 HTTP 请求的路径和处理逻辑。
-
-tests 目录用于存放项目的单元测试，用于验证代码的正确性。
-
-1. 本地 NodeJS 后端程序打包和基于 Dockerfile 多阶段构建的 Github Actions 示例
-
-以下是一个支持本地 NodeJS 后端程序打包和基于 Dockerfile 多阶段构建的 Github Actions 示例：
-
-```YAML
-name: Build and Deploy
-on:
-  push:
-    branches:
-      - main
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Install dependencies
-        run: npm install
-      - name: Build application
-        run: npm run build
-      - name: Build Docker image
-        run: docker build -t my-app .
-      - name: Push Docker image
-        run: docker push my-app
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Deploy to Kubernetes
-        run: |
-          kubectl apply -f deployment.yaml
-          kubectl apply -f service.yaml
-```
-
-请谨慎使用代码。了解详情
-
-说明：
-
-on 字段用于指定触发 Github Actions 的事件。
-
-jobs 字段用于定义 Github Actions 的流程。
-
-build 作业用于打包 NodeJS 后端程序并构建 Docker 镜像。
-
-deploy 作业用于将 Docker 镜像部署到 Kubernetes 集群。
-
-1. NodeJS 后端 Dockerfile 的多阶段构建的示例
-
-以下是一个 NodeJS 后端 Dockerfile 的多阶段构建示例：
-
-```
-代码段
-FROM node:16-alpine as build
+```Dockerfile
+# 第一阶段：安装依赖
+FROM node:18-alpine AS build
 
 WORKDIR /app
 
-COPY package.json ./
+COPY package.json .
 
 RUN npm install
 
-COPY . .
+# 第二阶段：构建应用程序
+FROM node:18-alpine AS production
 
-RUN npm run build
+WORKDIR /app
+
+COPY --from=build /app .
+
+EXPOSE 3000
+
+CMD ["node", "index.js"]
 ```
 
-[https://github.com/lujingtao/Vue-and-nodejs-communication](https://github.com/lujingtao/Vue-and-nodejs-communication)
+这个 Dockerfile 分为两个阶段：
+
+第一阶段：安装依赖
+
+第二阶段：构建应用程序
+
+- 第一阶段使用 node:18-alpine 镜像作为基础镜像。该镜像是一个小巧的 Alpine Linux 发行版，预装了 Node.js 18。
+
+该阶段首先将 package.json 文件复制到工作目录。然后，它使用 npm install 命令安装依赖。
+
+- 第二阶段使用 node:18-alpine 镜像作为基础镜像。该镜像与第一阶段相同。
+
+该阶段使用 COPY --from=build /app . 命令将第一阶段构建的应用程序复制到工作目录。然后，它使用 EXPOSE 3000 命令公开应用程序的端口 3000。最后，它使用 CMD "node", "index.js" 命令指定应用程序的启动命令。
+
+## Pipeline
+
+在 Scaffolding-JavaScript.git 仓库中，添加了 GitHub Actions 工作流的 YAML 文件 .github/workflows/pipeline.yaml 
+
+GitHub Actions 的管理界面 [https://github.com/svc-design/Scaffolding-JavaScript/actions](https://github.com/svc-design/Scaffolding-JavaScript/actions) ，手动触发 Run workflows 
+
+如需在自己的账号运行这个Demo，只需要将[https://github.com/svc-design/Scaffolding-JavaScript.git](https://github.com/svc-design/Scaffolding-JavaScript.git)  这个仓库Fork 到你自己的Github账号下，同时在
+
+Settings -> Actions secrets and variables: 添加流水线需要定义的变量:
+
+- HELM\_REPO\_USER             Artifact 仓库认证用户名
+- HELM\_REPO\_REGISTRY      Artifact 仓库认证地址  
+- HELM\_REPO\_PASSWORD    Artifact 仓库认证密码
+- HOST\_USER                       部署K3S的主机OS登陆用户名         
+- HOST\_IP                            部署K3S的主机IP地址
+- HOST\_DOMAIN                   部署K3S的主机域名
+- SSH\_PRIVATE\_KEY             访问K3S的主机的SSH 私钥
+
+一起就绪后，就可以看到 DevOPS 实践/GitHub Actions CICD 一节所示，在这个工作流中，自动的完成C程序的编译，测试，打包容器镜像并推送到自定义的仓库，并完成K3S集群的初始化，将容器镜像部署到K3S集群中。
 
 # GO 语言项目
 
- GO语言 项目开发的标准参考目录结构
+## 项目目录参考
 
- GO语言 标准参考目录结构
-
-以下是一个 GO语言 项目的标准目录结构示例：
-
-my-project
-
+```
+myproject
+├── go.mod
+├── go.sum
 ├── cmd
-
-│   └── main
-
-│       └── main.go
-
+│   └── main.go
 ├── internal
-
-│   └── config
-
-│       └── config.go
-
-│   └── database
-
-│       └── database.go
-
-│   └── models
-
-│       └── user.go
-
-├── pkg
-
-│   └── utils
-
-│       └── utils.go
-
-└── README.md
-
-在上述示例中:
-
-- cmd 目录是项目的主目录，存放项目的主程序。
-- internal 目录存放项目的私有代码，不希望公开的代码可以放在这里。
-- pkg 目录存放项目的公共代码，可以被其他项目引用。
-- README.md 文件描述项目的相关信息，例如项目的目的、使用方法等。
-- go.mod 文件管理项目的依赖关系，包括项目的名称、版本、作者等。
-- go.sum 文件记录项目的依赖关系的版本号，用于确保项目的一致性。
-
- **注意** 
-
-- 该目录结构只是一个推荐，开发者可以根据自己的实际需要进行调整。
-- 在使用 go mod 管理依赖关系时，go.mod 文件和 go.sum 文件是必不可少的。
-- 本地 GO语言 程序打包和基于 Dockerfile 多阶段构建的 Github Actions 示例
-
-以下是一个支持本地 GO语言 程序打包和基于 Dockerfile 多阶段构建的 Github Actions 示例：
-
-```YAML
-name: Build and Deploy
-on:
-  push:
-    branches:
-      - main
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Install dependencies
-        run: go mod download
-      - name: Build application
-        run: go build -o ./bin/my-app
-      - name: Build Docker image
-        run: docker build -t my-app .
-      - name: Push Docker image
-        run: docker push my-app
-
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Deploy to Kubernetes
-        run: |
-          kubectl apply -f deployment.yaml
-          kubectl apply -f service.yaml
+│   ├── api
+│   │   └── server.go
+│   └── pkg
+│       └── util.go
+└── pkg
+    └── mypubliclib
+        └── mypubliclib.go
 ```
 
-请谨慎使用代码。了解详情
+在这个示例中，项目的Go目录包含以下文件：
 
-1. GO语言 Dockerfile 的多阶段构建的示例
+- go.mod：项目的模块文件，用于指定项目的依赖关系。
+- go.sum：项目的依赖关系的哈希值，用于验证依赖库的版本。
+- cmd/main.go：项目的主入口文件。
+- internal/api/server.go：项目的 API 实现文件。
+- internal/pkg/util.go：项目的工具包文件。
+- pkg/mypubliclib/mypubliclib.go：项目的公共库文件。
 
-以下是一个 GO语言 Dockerfile 的多阶段构建示例：
+具体的目录结构可以根据项目的需要进行调整
 
-```
-代码段
-FROM golang:1.18-alpine as build
+## 多阶段构建的Dockerfile示例
 
-WORKDIR /app
+以下是一个 GO 语言项目 Dockerfile 多阶段构建的示例：
 
-COPY go.mod ./
-COPY go.sum ./
-RUN go mod download
+```Dockerfile
+# 第一阶段：构建 Go 应用程序
+FROM golang:1.18-alpine AS build
 
+# 设置工作目录
+WORKDIR /go/src/app
+
+# 复制源代码
 COPY . .
 
-RUN go build -o ./bin/my-app
+# 编译 Go 应用程序
+RUN go build -o app .
 
-FROM alpine:latest
+# 第二阶段：构建运行时镜像
+FROM scratch
 
-COPY --from=build /app/bin/my-app /app/my-app
+# 复制编译好的 Go 应用程序
+COPY --from=build /go/src/app/app /app
 
-CMD ["/app/my-app"]
+# 设置工作目录
+WORKDIR /app
+
+# 运行 Go 应用程序
+CMD ["./app"]
 ```
 
-请谨慎使用代码。了解详情
+这个 Dockerfile 分为两个阶段：
 
-多阶段构建
+第一阶段：使用 golang:1.18-alpine 镜像作为基础镜像，编译 Go 应用程序。
 
-在上述示例中，使用了多阶段构建来实现 GO语言 程序的打包和部署。第一阶段使用 golang 镜像来打包 GO语言 程序，第二阶段使用 alpine 镜像来将打包后的程序部署到容器中。
+第二阶段：使用 scratch 镜像作为基础镜像，复制编译好的 Go 应用程序，并设置工作目录和运行命令。
 
-## Rust 语言项目
+## Pipeline
 
-以下是 Rust 语言 项目开发的标准参考目录结构、本地 Rust 语言 程序打包和基于 Dockerfile 多阶段构建的 Github Actions 示例、Rust 语言 Dockerfile 的多阶段构建的示例：
+在 Scaffolding-JavaScript.git 仓库中，添加了 GitHub Actions 工作流的 YAML 文件 .github/workflows/pipeline.yaml 
 
-Rust 语言 项目开发的标准参考目录结构
+GitHub Actions 的管理界面 [https://github.com/svc-design/Scaffolding-Go/actions](https://github.com/svc-design/Scaffolding-Go/actions) ，手动触发 Run workflows 
 
-Rust 语言 项目开发的标准参考目录结构如下：
+如需在自己的账号运行这个Demo，只需要将[https://github.com/svc-design/Scaffolding-Go.git](https://github.com/svc-design/Scaffolding-Go.git)  这个仓库Fork 到你自己的Github账号下，同时在
 
-src 目录：存放项目的源代码，包括 main.rs 文件、配置文件、数据模型、路由配置等。
+Settings -> Actions secrets and variables: 添加流水线需要定义的变量:
 
-Cargo.toml 文件：管理项目的依赖关系。
+- HELM\_REPO\_USER             Artifact 仓库认证用户名
+- HELM\_REPO\_REGISTRY      Artifact 仓库认证地址  
+- HELM\_REPO\_PASSWORD    Artifact 仓库认证密码
+- HOST\_USER                       部署K3S的主机OS登陆用户名         
+- HOST\_IP                            部署K3S的主机IP地址
+- HOST\_DOMAIN                   部署K3S的主机域名
+- SSH\_PRIVATE\_KEY             访问K3S的主机的SSH 私钥
 
-README.md 文件：描述项目的相关信息。
+一起就绪后，就可以看到 DevOPS 实践/GitHub Actions CICD 一节所示，在这个工作流中，自动的完成C程序的编译，测试，打包容器镜像并推送到自定义的仓库，并完成K3S集群的初始化，将容器镜像部署到K3S集群中。
 
-说明
+# Rust 语言项目
 
-src 目录是项目的主目录，存放项目的源代码。
+## 项目目录参考
 
-Cargo.toml 文件管理项目的依赖关系，包括项目的名称、版本、作者等。
+Rust 语言项目的标准参考目录结构如下：
 
-README.md 文件描述项目的相关信息，例如项目的目的、使用方法等。
-
-示例
-
-以下是一个 Rust 语言 项目的标准目录结构示例：
-
-my-project
-
+```
+.
+├── Cargo.toml
 ├── src
-
 │   └── main.rs
-
-│   └── config.rs
-
-│   └── database.rs
-
-│   └── models.rs
-
-│   └── routes.rs
-
-└── Cargo.toml
-
-└── README.md
-
-在上述示例中，src/main.rs 文件是项目的主程序，Cargo.toml 文件管理项目的依赖关系，README.md 文件描述项目的相关信息。
-
-本地 Rust 语言 程序打包和基于 Dockerfile 多阶段构建的 Github Actions 示例
-
-以下是一个支持本地 Rust 语言 程序打包和基于 Dockerfile 多阶段构建的 Github Actions 示例：
-
-YAML
-
-name: Build and Deploy
-
-on:
-
-  push:
-
-```
-branches:
+└── tests
+    └── tests.rs
 ```
 
-```
-  - mainjobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - name: Install dependencies
-        run: cargo install --path .
-      - name: Build application
-        run: cargo build --release
-      - name: Build Docker image
-        run: docker build -t my-app .
-      - name: Push Docker image
-        run: docker push my-app
-```
+- Cargo.toml 文件是 Rust 项目的配置文件，用于指定项目的依赖项、编译选项等。
+- src 目录存放项目的源代码。
+- main.rs 文件是项目的主入口文件，用于启动项目。
+- tests 目录存放项目的测试代码。
 
-  deploy:
+## 多阶段构建 Dockerfile 的示例
 
-```
-needs: build
-```
+Rust语言 项目的 Dockerfile 多阶段构建示例如下：
 
-```
-runs-on: ubuntu-latest
-```
-
-```
-steps:
-```
-
-```
-  - uses: actions/checkout@v2
-  - name: Deploy to Kubernetes
-    run: |
-      kubectl apply -f deployment.yaml
-      kubectl apply -f service.yaml请谨慎使用代码。了解详情
-Rust 语言 Dockerfile 的多阶段构建的示例
-以下是一个 Rust 语言 Dockerfile 的多阶段构建示例：
-```
-
-代码段
-
-FROM rust:1.60.0 as build
-
+```Dockerfile
+# 第一阶段：Rust 编译
+FROM rust:1.62.0-slim
 WORKDIR /app
-
 COPY . .
-
 RUN cargo build --release
 
-FROM alpine:latest
+# 第二阶段：生成可执行文件
 
-COPY --from=build /app/target/release/my-app /app/my-app
-
-CMD "/app/my-app"
+FROM scratch
+COPY --from=0 /app/target/release/my_app /my_app
+CMD ["/my_app"]
+```
 
 请谨慎使用代码。了解详情
 
-多阶段构建
+该 Dockerfile 使用两阶段构建：
 
-在上述示例中，使用了多阶段构建来实现 Rust 语言 程序的打包和部署。第一阶段使用 rust 镜像来打包 Rust 语言 程序，第二阶段使用 alpine 镜像来将打包后的程序部署到容器中。
+第一阶段使用 Rust 官方镜像进行 Rust 编译，将编译后的可执行文件复制到 /app 目录。
 
-说明
+第二阶段使用一个空镜像，从第一阶段复制可执行文件，并将其设置为容器的启动命令。
 
-FROM 指令用于指定基础镜像。
+## Pipeline
 
-WORKDIR 指令用于指定工作目录。
+在 Scaffolding-JavaScript.git 仓库中，添加了 GitHub Actions 工作流的 YAML 文件 .github/workflows/pipeline.yaml 
 
-COPY 指令用于将文件或目录复制到镜像中。
+GitHub Actions 的管理界面 [https://github.com/svc-design/Scaffolding-Rust/actions](https://github.com/svc-design/Scaffolding-Rust/actions) ，手动触发 Run workflows 
 
-RUN 指令用于在镜像中执行命令。
+如需在自己的账号运行这个Demo，只需要将[https://github.com/svc-design/Scaffolding-Rust.git](https://github.com/svc-design/Scaffolding-Rust.git)  这个仓库Fork 到你自己的Github账号下，同时在
 
-EXPOSE 指令用于指定镜像暴露的端口。
+Settings -> Actions secrets and variables: 添加流水线需要定义的变量:
 
-CMD 指令用于指定镜像启动时执行的命令。
+- HELM\_REPO\_USER             Artifact 仓库认证用户名
+- HELM\_REPO\_REGISTRY      Artifact 仓库认证地址  
+- HELM\_REPO\_PASSWORD    Artifact 仓库认证密码
+- HOST\_USER                       部署K3S的主机OS登陆用户名         
+- HOST\_IP                            部署K3S的主机IP地址
+- HOST\_DOMAIN                   部署K3S的主机域名
+- SSH\_PRIVATE\_KEY             访问K3S的主机的SSH 私钥
 
-vue3
-
-brew install node
-
-npm install @vue/cli
-
-npm init vite@latest
-
-按提示进行操作，然后打开项目
-
-npm install
-
-npm run dev
-
-npm i axios
-
-npm install vue-router@4
-
-npm install pinia
-
-npm init @vitejs/app
-
-npm install @vue/cli-plugin-weex
-
-vue-cli-service build --target=weapp
-
-原生开发工具：
-
-HBuilderX
-
-Android Studio：用于开发 Android 应用。
-
-Xcode：用于开发 iOS 应用。
-
-Weex Studio：用于开发基于 Vue3 的 Web 应用和原生应用。
+一起就绪后，就可以看到 DevOPS 实践/GitHub Actions CICD 一节所示，在这个工作流中，自动的完成C程序的编译，测试，打包容器镜像并推送到自定义的仓库，并完成K3S集群的初始化，将容器镜像部署到K3S集群中。
