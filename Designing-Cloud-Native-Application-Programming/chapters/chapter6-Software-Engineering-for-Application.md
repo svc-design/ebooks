@@ -452,7 +452,7 @@ GitHub Actions 是 GitHub 提供的持续集成/持续交付 (CI/CD) 服务，�
 - Makefile 用于编译、测试和部署项目。
 - Dockerfile 用于构建容器镜像
 
-相关C 的小程序代码仓库参考，[https://github.com/svc-design/Scaffolding-C](https://github.com/svc-design/Scaffolding-C)，这是一个可以实现查看Linux系统信息的C程序，包含头文件定义，函数库，以及单元测试代码等，软件开发必备的部分。 
+相关代码仓库参考，[https://github.com/SvcDesignScaffolding/C.git](https://github.com/SvcDesignScaffolding/C.git)，这是一个可以实现查看Linux系统信息的C程序，包含头文件定义，函数库，以及单元测试代码等，软件开发必备的部分。 
 
 ## Dockerfile
 
@@ -491,11 +491,13 @@ CMD ["/bin/sh"]
 
 ## Pipeline
 
-在 Scaffolding-C.git 仓库中，添加了 GitHub Actions 工作流的 YAML 文件 .github/workflows/pipeline.yaml 
+在 C.git 仓库中
 
-GitHub Actions 的管理界面 [https://github.com/svc-design/Scaffolding-C/actions](https://github.com/svc-design/Scaffolding-C/actions) ，手动触发 Run workflows 
+1. 添加了 GitHub Actions 工作流的 YAML 文件 .github/workflows/pipeline.yaml 
+2. GitHub Actions 的管理界面 [https://github.com/SvcDesignScaffolding/C/actions](https://github.com/SvcDesignScaffolding/C/actions)
+3. 手动触发 Run workflows 执行
 
-如需在自己的账号运行这个Demo，只需要将[https://github.com/svc-design/Scaffolding-C.git](https://github.com/svc-design/Scaffolding-C.git)  这个仓库Fork 到你自己的Github账号下，同时在
+如需在自己的账号运行这个Demo，只需要将[https://github.com/SvcDesignScaffolding/C.git](https://github.com/SvcDesignScaffolding/C.git) 这个仓库Fork 到你自己的Github账号下，同时在
 
 Settings -> Actions secrets and variables: 添加流水线需要定义的变量:
 
@@ -555,33 +557,20 @@ myproject/
 以下是一个 Dockerfile 多阶段构建的示例：
 
 ```Dockerfile
-# 第一阶段：编译阶段
+#第一阶段：编译阶段
 FROM python:3.10-buster AS builder
 
-# 安装编译依赖
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    build-essential \
-    python3-dev \
-    python3-pip
-
-# 复制源代码
-COPY . /app
-
-# 编译项目
-RUN pip3 install -r /app/requirements.txt
+WORKDIR /app
+COPY . .
+RUN pip3 install -r requirements.txt
 RUN python3 setup.py build
 
 # 第二阶段：运行阶段
 FROM python:3.10-slim-buster
 
-# 复制编译产物
-COPY --from=builder /app/dist/myproject-0.1.0-py3-none-any.whl /app
-
-# 安装运行依赖
-RUN pip3 install /app/myproject-0.1.0-py3-none-any.whl
-
-# 启动项目
-CMD ["python3", "/app/myproject/main.py"]
+WORKDIR /app
+COPY --from=builder /app/dist .
+CMD uvicorn app:app --host 0.00.0.0 --port 8000 --reload
 ```
 
 这个 Dockerfile 使用了两阶段构建：
@@ -594,11 +583,13 @@ CMD ["python3", "/app/myproject/main.py"]
 
 ## Pipeline
 
-在 Scaffolding-Python.git 仓库中，添加了 GitHub Actions 工作流的 YAML 文件 .github/workflows/pipeline.yaml 
+在 Python.git 仓库中
 
-GitHub Actions 的管理界面 [https://github.com/svc-design/Scaffolding-Python/actions](https://github.com/svc-design/Scaffolding-Python/actions) ，手动触发 Run workflows 
+1. 添加了 GitHub Actions 工作流的 YAML 文件 .github/workflows/pipeline.yaml 
+2. GitHub Actions 的管理界面 [https://github.com/SvcDesignScaffolding/Python/actions](https://github.com/SvcDesignScaffolding/Python/actions)
+3. 手动触发 Run workflows 执行
 
-如需在自己的账号运行这个Demo，只需要将[https://github.com/svc-design/Scaffolding-Python.git](https://github.com/svc-design/Scaffolding-Python.git)  这个仓库Fork 到你自己的Github账号下，同时在
+如需在自己的账号运行这个Demo，只需要将[https://github.com/SvcDesignScaffolding/Python.git](https://github.com/SvcDesignScaffolding/Python.git) 这个仓库Fork 到你自己的Github账号下，同时在
 
 Settings -> Actions secrets and variables: 添加流水线需要定义的变量:
 
@@ -619,17 +610,15 @@ Settings -> Actions secrets and variables: 添加流水线需要定义的变量:
 以下是一个 JavaScript 语言 Vue3 项目开发的标准参考目录结构：
 
 ```
-myproject/
-├── public/
-│   ├── index.html
-│   └── favicon.ico
-├── src/
-│   ├── components/
-│   │   └── HelloWorld.vue
+front
+├── src
 │   ├── App.vue
+│   ├── components
+│   │   └── HelloWorld.vue
 │   ├── main.js
 │   └── router.js
 ├── .gitignore
+├── Dockerfile
 ├── package.json
 └── README.md
 ```
@@ -758,11 +747,13 @@ CMD ["node", "index.js"]
 
 ## Pipeline
 
-在 Scaffolding-JavaScript.git 仓库中，添加了 GitHub Actions 工作流的 YAML 文件 .github/workflows/pipeline.yaml 
+在 JavaScript.git 仓库中
 
-GitHub Actions 的管理界面 [https://github.com/svc-design/Scaffolding-JavaScript/actions](https://github.com/svc-design/Scaffolding-JavaScript/actions) ，手动触发 Run workflows 
+1. 添加定义 GitHub Actions 工作流的 YAML 文件 .github/workflows/pipeline.yaml 
+2. GitHub Actions 的管理界面 [https://github.com/SvcDesignScaffolding/JavaScript/actions](https://github.com/SvcDesignScaffolding/JavaScript/actions)
+3. 手动触发 Run workflows 执行
 
-如需在自己的账号运行这个Demo，只需要将[https://github.com/svc-design/Scaffolding-JavaScript.git](https://github.com/svc-design/Scaffolding-JavaScript.git)  这个仓库Fork 到你自己的Github账号下，同时在
+如需在自己的账号运行这个Demo，只需要将[https://github.com/SvcDesignScaffolding/JavaScript.git](https://github.com/SvcDesignScaffolding/JavaScript.git) 这个仓库Fork 到你自己的Github账号下，同时在
 
 Settings -> Actions secrets and variables: 添加流水线需要定义的变量:
 
@@ -845,11 +836,13 @@ CMD ["./app"]
 
 ## Pipeline
 
-在 Scaffolding-JavaScript.git 仓库中，添加了 GitHub Actions 工作流的 YAML 文件 .github/workflows/pipeline.yaml 
+在 Go.git 仓库中
 
-GitHub Actions 的管理界面 [https://github.com/svc-design/Scaffolding-Go/actions](https://github.com/svc-design/Scaffolding-Go/actions) ，手动触发 Run workflows 
+1. 添加了 GitHub Actions 工作流的 YAML 文件 .github/workflows/pipeline.yaml 
+2. GitHub Actions 的管理界面 [https://github.com/SvcDesignScaffolding/Go/actions](https://github.com/SvcDesignScaffolding/Go/actions)
+3. 手动触发 Run workflows 执行
 
-如需在自己的账号运行这个Demo，只需要将[https://github.com/svc-design/Scaffolding-Go.git](https://github.com/svc-design/Scaffolding-Go.git)  这个仓库Fork 到你自己的Github账号下，同时在
+如需在自己的账号运行这个Demo，只需要将[https://github.com/SvcDesignScaffolding/Go.git](https://github.com/SvcDesignScaffolding/Go.git) 这个仓库Fork 到你自己的Github账号下，同时在
 
 Settings -> Actions secrets and variables: 添加流水线需要定义的变量:
 
@@ -911,11 +904,13 @@ CMD ["/my_app"]
 
 ## Pipeline
 
-在 Scaffolding-JavaScript.git 仓库中，添加了 GitHub Actions 工作流的 YAML 文件 .github/workflows/pipeline.yaml 
+在 Scaffolding-JavaScript.git 仓库中
 
-GitHub Actions 的管理界面 [https://github.com/svc-design/Scaffolding-Rust/actions](https://github.com/svc-design/Scaffolding-Rust/actions) ，手动触发 Run workflows 
+1. 添加了 GitHub Actions 工作流的 YAML 文件 .github/workflows/pipeline.yaml 
+2. GitHub Actions 的管理界面 [https://github.com/SvcDesignScaffolding/Rust/actions](https://github.com/SvcDesignScaffolding/Rust/actions)
+3. 手动触发 Run workflows 执行
 
-如需在自己的账号运行这个Demo，只需要将[https://github.com/svc-design/Scaffolding-Rust.git](https://github.com/svc-design/Scaffolding-Rust.git)  这个仓库Fork 到你自己的Github账号下，同时在
+如需在自己的账号运行这个Demo，只需要将[https://github.com/SvcDesignScaffolding/Rust.git](https://github.com/SvcDesignScaffolding/Rust.git) 这个仓库Fork 到你自己的Github账号下，同时在
 
 Settings -> Actions secrets and variables: 添加流水线需要定义的变量:
 
