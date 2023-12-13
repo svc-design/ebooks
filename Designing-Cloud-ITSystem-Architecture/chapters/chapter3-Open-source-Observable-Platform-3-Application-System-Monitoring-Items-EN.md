@@ -1,5 +1,19 @@
 # Overview
 
+When discussing monitoring and alerting from a container application perspective, there are several key points to consider. Traditional host-based monitoring approaches, such as utilization and load monitoring, may no longer be suitable in a dynamic, multi-replica Pod environment. This is due to the dynamic nature and elasticity of application services in containerized and microservices architectures.
+
+API Service Level Objectives (SLOs): Monitoring and alerting systems should focus more on API Service Level Objectives (SLOs). This includes, but is not limited to, response time, availability, and error rates. This approach better reflects the user experience and business objectives.
+
+Pod Performance Metrics: Instead of focusing on the resource usage of the entire host, focus on specific performance metrics of Pods, such as restart counts, latency, and traffic. This helps in quickly identifying and resolving issues specific to a service.
+
+Resource Availability Forecasting and Alerting: Host nodes should be viewed as resource pools, where forecasting the availability of resources becomes crucial. By predicting resource shortages, scaling up or optimizing can be done in time to avoid service disruptions.
+
+Automation and Intelligence: As container technologies and microservices evolve, monitoring and alerting systems should also move towards automation and intelligence. For example, using machine learning algorithms to predict and identify abnormal behavior patterns.
+
+Multi-Dimensional Data Aggregation: Combining data from different sources (such as application logs, performance metrics, network traffic, etc.) for multi-dimensional analysis provides a more comprehensive perspective.
+
+Service Dependency Analysis: Understanding the dependencies between services is crucial for accurate monitoring and troubleshooting.
+
 Utilizing open-source monitoring tools such as Prometheus, Alertmanager, Loki, and Grafana for monitoring Service Level Objectives (SLOs) of infrastructure and application resource consumption. This approach also involves unifying the handling of monitoring metrics, logs, and link tracing, as well as reducing ineffective alerts. Below is a solution concept and configuration example based on the S.T.A.R. (Situation, Task, Action, Result) methodology:
 
 ## Situation
